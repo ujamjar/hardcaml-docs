@@ -1,0 +1,51 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Gfx_lterm" rel="Chapter" href="Gfx_lterm.html">
+<link title="Widget" rel="Chapter" href="Widget.html">
+<link title="Ui" rel="Chapter" href="Ui.html">
+<link title="Api" rel="Chapter" href="Api.html"><title>Widget.Make.waveform</title>
+</head>
+<body>
+<code class="code">?signals_width:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+?values_width:int&nbsp;<span class="keywordsign">-&gt;</span><br>
+?framed:bool&nbsp;<span class="keywordsign">-&gt;</span><br>
+unit&nbsp;<span class="keywordsign">-&gt;</span><br>
+<span class="keyword">object</span><br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add&nbsp;:&nbsp;?position:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?expand:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">#</span><span class="constructor">LTerm_widget</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;allocation&nbsp;:&nbsp;<span class="constructor">LTerm_geom</span>.rect<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;can_focus&nbsp;:&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;children&nbsp;:&nbsp;<span class="constructor">LTerm_widget</span>.t&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;cursor_position&nbsp;:&nbsp;<span class="constructor">LTerm_geom</span>.coord&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draw&nbsp;:&nbsp;<span class="constructor">LTerm_draw</span>.context&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">LTerm_widget</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;focus&nbsp;:&nbsp;<span class="constructor">LTerm_widget</span>.t&nbsp;option&nbsp;<span class="constructor">LTerm_geom</span>.directions<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_waves&nbsp;:&nbsp;<span class="constructor">W</span>.waves<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;move_focus_to&nbsp;:&nbsp;?c:<span class="constructor">LTerm_geom</span>.coord&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">LTerm_widget</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_event&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?switch:<span class="constructor">LTerm_widget_callbacks</span>.switch&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="constructor">LTerm_event</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;parent&nbsp;:&nbsp;<span class="constructor">LTerm_widget</span>.t&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;queue_draw&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;remove&nbsp;:&nbsp;<span class="keywordsign">#</span><span class="constructor">LTerm_widget</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;resource_class&nbsp;:&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;resources&nbsp;:&nbsp;<span class="constructor">LTerm_resources</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;send_event&nbsp;:&nbsp;<span class="constructor">LTerm_event</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_allocation&nbsp;:&nbsp;<span class="constructor">LTerm_geom</span>.rect&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_focus&nbsp;:&nbsp;<span class="constructor">LTerm_widget</span>.t&nbsp;option&nbsp;<span class="constructor">LTerm_geom</span>.directions&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_parent&nbsp;:&nbsp;<span class="constructor">LTerm_widget</span>.t&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_queue_draw&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_resource_class&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_resources&nbsp;:&nbsp;<span class="constructor">LTerm_resources</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_waves&nbsp;:&nbsp;?keep_cfg:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">W</span>.waves&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;signals&nbsp;:&nbsp;<span class="constructor">Widget</span>.<span class="constructor">Make</span>.signals<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;size_request&nbsp;:&nbsp;<span class="constructor">LTerm_geom</span>.size<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;update_resources&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;update_wave_cycles&nbsp;:&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;values&nbsp;:&nbsp;<span class="constructor">Widget</span>.<span class="constructor">Make</span>.values<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;waves&nbsp;:&nbsp;<span class="constructor">Widget</span>.<span class="constructor">Make</span>.waves<br>
+<span class="keyword">end</span></code></body></html>

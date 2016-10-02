@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Kmap.html">
+<link rel="next" href="Espresso.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Expr" rel="Chapter" href="Expr.html">
+<link title="Pcn" rel="Chapter" href="Pcn.html">
+<link title="Gates" rel="Chapter" href="Gates.html">
+<link title="Mig" rel="Chapter" href="Mig.html">
+<link title="Bddx" rel="Chapter" href="Bddx.html">
+<link title="Cnf" rel="Chapter" href="Cnf.html">
+<link title="Sat" rel="Chapter" href="Sat.html">
+<link title="Kmap" rel="Chapter" href="Kmap.html">
+<link title="Algebraic" rel="Chapter" href="Algebraic.html">
+<link title="Espresso" rel="Chapter" href="Espresso.html"><title>Algebraic</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Kmap.html" title="Kmap">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Espresso.html" title="Espresso">Next</a>
+</div>
+<h1>Module <a href="type_Algebraic.html">Algebraic</a></h1>
+
+<pre><span class="keyword">module</span> Algebraic: <code class="code">sig</code> <a href="Algebraic.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+
+
+<pre><span id="EXCEPTIONOnly_vars_allowed_in_sop"><span class="keyword">exception</span> Only_vars_allowed_in_sop</span> <span class="keyword">of</span> <code class="type">string</code></pre>
+
+<pre><span id="VALcubes_of_sop"><span class="keyword">val</span> cubes_of_sop</span> : <code class="type"><a href="Expr.html#TYPEt">Expr.t</a> list list -> <a href="Algebraic.html#TYPEt">t</a></code></pre>
+<pre><span id="VALsop_of_cubes"><span class="keyword">val</span> sop_of_cubes</span> : <code class="type"><a href="Algebraic.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">Expr.t</a> list list</code></pre>
+<pre><span id="VALdivide"><span class="keyword">val</span> divide</span> : <code class="type"><a href="Algebraic.html#TYPEt">t</a> -> <a href="Algebraic.html#TYPEt">t</a> -> <a href="Algebraic.html#TYPEt">t</a> * <a href="Algebraic.html#TYPEt">t</a></code></pre>
+<pre><span id="VALshared_cubes"><span class="keyword">val</span> shared_cubes</span> : <code class="type"><a href="Algebraic.html#TYPEt">t</a> -> Expr.S.t</code></pre>
+<pre><span id="VALis_cube_free"><span class="keyword">val</span> is_cube_free</span> : <code class="type"><a href="Algebraic.html#TYPEt">t</a> -> bool</code></pre>
+<pre><span id="TYPEcokernel"><span class="keyword">type</span> <code class="type"></code>cokernel</span> = <code class="type">Expr.S.t</code> </pre>
+
+
+<pre><span id="TYPEkernel"><span class="keyword">type</span> <code class="type"></code>kernel</span> = <code class="type"><a href="Algebraic.html#TYPEt">t</a></code> </pre>
+
+
+<pre><span id="VALcokernels_of_var"><span class="keyword">val</span> cokernels_of_var</span> : <code class="type"><a href="Expr.html#TYPEt">Expr.t</a> -> <a href="Algebraic.html#TYPEt">t</a> -> <a href="Algebraic.html#TYPEt">t</a></code></pre>
+<pre><span id="VALfind_kernel_of_var"><span class="keyword">val</span> find_kernel_of_var</span> : <code class="type"><a href="Expr.html#TYPEt">Expr.t</a> -> <a href="Algebraic.html#TYPEt">t</a> -> (<a href="Algebraic.html#TYPEcokernel">cokernel</a> * <a href="Algebraic.html#TYPEkernel">kernel</a>) option</code></pre>
+<pre><span id="VALfind_kernels"><span class="keyword">val</span> find_kernels</span> : <code class="type"><a href="Algebraic.html#TYPEt">t</a> -> (<a href="Algebraic.html#TYPEcokernel">cokernel</a> * <a href="Algebraic.html#TYPEkernel">kernel</a>) list</code></pre></body></html>

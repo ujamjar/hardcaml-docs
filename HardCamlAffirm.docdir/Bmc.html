@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="NuSMV.html">
+<link rel="next" href="Waves.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Props" rel="Chapter" href="Props.html">
+<link title="Transform_state" rel="Chapter" href="Transform_state.html">
+<link title="NuSMV" rel="Chapter" href="NuSMV.html">
+<link title="Bmc" rel="Chapter" href="Bmc.html">
+<link title="Waves" rel="Chapter" href="Waves.html"><title>Bmc</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="NuSMV.html" title="NuSMV">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Waves.html" title="Waves">Next</a>
+</div>
+<h1>Module <a href="type_Bmc.html">Bmc</a></h1>
+
+<pre><span class="keyword">module</span> Bmc: <code class="code">sig</code> <a href="Bmc.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Unroll circuit<br>
+</div>
+<hr width="100%">
+
+<pre><span class="keyword">module</span> <a href="Bmc.Init_state.html">Init_state</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">B</code><code class="code"> : </code><code class="type">HardCaml.Comb.S</code><code class="code">) -&gt; </code><div class="sig_block"><code class="code">functor (</code><code class="code">B_sim</code><code class="code"> : </code><code class="type">HardCaml.Comb.S</code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Bmc.Init_state.html">..</a> <code class="code">end</code></div></div></pre>
+<pre><span class="keyword">module</span> <a href="Bmc.Unroller.html">Unroller</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">B</code><code class="code"> : </code><code class="type">HardCaml.Comb.S</code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Bmc.Unroller.html">..</a> <code class="code">end</code></div></pre><div class="info">
+Unroll circuit
+</div>
+
+<pre><span class="keyword">module</span> <a href="Bmc.LTL.html">LTL</a>: <code class="code">sig</code> <a href="Bmc.LTL.html">..</a> <code class="code">end</code></pre>
+<pre><span id="VALtransform_regs"><span class="keyword">val</span> transform_regs</span> : <code class="type">reset:bool -> clear:bool -> enable:bool -> <a href="Props.LTL.html#TYPEpath">Props.LTL.path</a> -> <a href="Props.LTL.html#TYPEpath">Props.LTL.path</a></code></pre><div class="info ">
+By default the BMC routines ignore the register reset/clear/enable.
+<p>
+
+    To keep them they should be converted into muxes at the front of the registers.
+    This function will extract a circuit from the LTL specification, transform it
+    optionally generating muxes for the reset/clear/enable signals, then rewrite the
+    LTL formula with the revised atomic propositions<br>
+</div>
+
+<pre><span id="VALcompile"><span class="keyword">val</span> compile</span> : <code class="type">?verbose:bool -><br>       ?init_state:(HardCaml.Signal.Comb.t -> HardCaml.Signal.Comb.t) -><br>       k:int -> <a href="Props.LTL.html#TYPEpath">Props.LTL.path</a> -> HardCaml.Signal.Comb.t</code></pre><div class="info ">
+generate a BMC formula for a circuit and LTL formula over k&gt;=0 time steps.<br>
+</div>
+
+<pre><span id="TYPEbmc_result"><span class="keyword">type</span> <code class="type"></code>bmc_result</span> = <code class="type">(int * (string * string array) list) Sattools.Result.t</code> </pre>
+
+
+<pre><span id="VALrun1"><span class="keyword">val</span> run1</span> : <code class="type">?verbose:bool -><br>       ?init_state:(HardCaml.Signal.Comb.t -> HardCaml.Signal.Comb.t) -><br>       k:int -> <a href="Props.LTL.html#TYPEpath">Props.LTL.path</a> -> <a href="Bmc.html#TYPEbmc_result">bmc_result</a></code></pre><div class="info ">
+run BMC with bound k<br>
+</div>
+
+<pre><span id="VALprint"><span class="keyword">val</span> print</span> : <code class="type">?init_state:(HardCaml.Signal.Comb.t -> HardCaml.Signal.Comb.t) -><br>       k:int -> <a href="Props.LTL.html#TYPEpath">Props.LTL.path</a> -> unit</code></pre>
+<pre><span id="VALrun"><span class="keyword">val</span> run</span> : <code class="type">?verbose:bool -><br>       ?init_state:(HardCaml.Signal.Comb.t -> HardCaml.Signal.Comb.t) -><br>       k:int -> <a href="Props.LTL.html#TYPEpath">Props.LTL.path</a> -> <a href="Bmc.html#TYPEbmc_result">bmc_result</a></code></pre><div class="info ">
+Iteratively run BMC for up to k time steps<br>
+</div>
+<br>
+Interface flow<br>
+
+<pre><code><span id="TYPEbmc"><span class="keyword">type</span> <code class="type"></code>bmc</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTbmc.run">run</span>&nbsp;: <code class="type">?verbose:bool -> int -> <a href="Bmc.html#TYPEbmc_result">bmc_result</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTbmc.run1">run1</span>&nbsp;: <code class="type">?verbose:bool -> int -> <a href="Bmc.html#TYPEbmc_result">bmc_result</a></code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><span class="keyword">module</span> <a href="Bmc.Gen.html">Gen</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">I</code><code class="code"> : </code><code class="type">HardCaml.Interface.S</code><code class="code">) -&gt; </code><div class="sig_block"><code class="code">functor (</code><code class="code">O</code><code class="code"> : </code><code class="type">HardCaml.Interface.S</code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Bmc.Gen.html">..</a> <code class="code">end</code></div></div></pre>
+<pre><span class="keyword">module</span> <a href="Bmc.Gen_with_sim.html">Gen_with_sim</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">B</code><code class="code"> : </code><code class="type">HardCaml.Comb.S</code><code class="code">) -&gt; </code><div class="sig_block"><code class="code">functor (</code><code class="code">I</code><code class="code"> : </code><code class="type">HardCaml.Interface.S</code><code class="code">) -&gt; </code><div class="sig_block"><code class="code">functor (</code><code class="code">O</code><code class="code"> : </code><code class="type">HardCaml.Interface.S</code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Bmc.Gen_with_sim.html">..</a> <code class="code">end</code></div></div></div></pre></body></html>

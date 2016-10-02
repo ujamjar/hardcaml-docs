@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Pcn.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Expr" rel="Chapter" href="Expr.html">
+<link title="Pcn" rel="Chapter" href="Pcn.html">
+<link title="Gates" rel="Chapter" href="Gates.html">
+<link title="Mig" rel="Chapter" href="Mig.html">
+<link title="Bddx" rel="Chapter" href="Bddx.html">
+<link title="Cnf" rel="Chapter" href="Cnf.html">
+<link title="Sat" rel="Chapter" href="Sat.html">
+<link title="Kmap" rel="Chapter" href="Kmap.html">
+<link title="Algebraic" rel="Chapter" href="Algebraic.html">
+<link title="Espresso" rel="Chapter" href="Espresso.html"><link title="boolean expression constants, variables and operators" rel="Section" href="#2_booleanexpressionconstantsvariablesandoperators">
+<title>Expr</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Pcn.html" title="Pcn">Next</a>
+</div>
+<h1>Module <a href="type_Expr.html">Expr</a></h1>
+
+<pre><span class="keyword">module</span> Expr: <code class="code">sig</code> <a href="Expr.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<h2 id="2_basicbooleanexpressiontype">basic boolean expression type</h2><br>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEuid"><span class="keyword">type</span> <code class="type"></code>uid</span> </pre>
+
+
+<pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.T"><span class="constructor">T</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.F"><span class="constructor">F</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.Var"><span class="constructor">Var</span></span> <span class="keyword">of</span> <code class="type"><a href="Expr.html#TYPEuid">uid</a> * string * int</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.Not"><span class="constructor">Not</span></span> <span class="keyword">of</span> <code class="type"><a href="Expr.html#TYPEuid">uid</a> * <a href="Expr.html#TYPEt">t</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.Or"><span class="constructor">Or</span></span> <span class="keyword">of</span> <code class="type"><a href="Expr.html#TYPEuid">uid</a> * <a href="Expr.html#TYPEt">t</a> * <a href="Expr.html#TYPEt">t</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.Xor"><span class="constructor">Xor</span></span> <span class="keyword">of</span> <code class="type"><a href="Expr.html#TYPEuid">uid</a> * <a href="Expr.html#TYPEt">t</a> * <a href="Expr.html#TYPEt">t</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.And"><span class="constructor">And</span></span> <span class="keyword">of</span> <code class="type"><a href="Expr.html#TYPEuid">uid</a> * <a href="Expr.html#TYPEt">t</a> * <a href="Expr.html#TYPEt">t</a></code></code></td>
+
+</tr></table>
+
+
+
+<pre><span id="VALid"><span class="keyword">val</span> id</span> : <code class="type">unit -> <a href="Expr.html#TYPEuid">uid</a></code></pre>
+<pre><span id="VALuid"><span class="keyword">val</span> uid</span> : <code class="type"><a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEuid">uid</a></code></pre>
+<pre><span id="VALcompare_uid"><span class="keyword">val</span> compare_uid</span> : <code class="type"><a href="Expr.html#TYPEuid">uid</a> -> <a href="Expr.html#TYPEuid">uid</a> -> int</code></pre>
+<pre><span class="keyword">module</span> <a href="Expr.Uset.html">Uset</a>: <code class="type">Set.S</code><code class="type">  with type elt = uid</code></pre>
+<pre><span class="keyword">module</span> <a href="Expr.Umap.html">Umap</a>: <code class="type">Map.S</code><code class="type">  with type key = uid</code></pre><br>
+<h2 id="2_booleanexpressionconstantsvariablesandoperators">boolean expression constants, variables and operators</h2><br>
+
+<pre><span id="VALt"><span class="keyword">val</span> t</span> : <code class="type"><a href="Expr.html#TYPEt">t</a></code></pre>
+<pre><span id="VALf"><span class="keyword">val</span> f</span> : <code class="type"><a href="Expr.html#TYPEt">t</a></code></pre>
+<pre><span id="VALvar"><span class="keyword">val</span> var</span> : <code class="type">?i:int -> string -> <a href="Expr.html#TYPEt">t</a></code></pre>
+<pre><span id="VAL(~:)"><span class="keyword">val</span> (~:)</span> : <code class="type"><a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a></code></pre>
+<pre><span id="VAL(|:)"><span class="keyword">val</span> (|:)</span> : <code class="type"><a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a></code></pre>
+<pre><span id="VAL(^:)"><span class="keyword">val</span> (^:)</span> : <code class="type"><a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a></code></pre>
+<pre><span id="VAL(&:)"><span class="keyword">val</span> (&amp;:)</span> : <code class="type"><a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a></code></pre>
+<pre><span class="keyword">module</span> <a href="Expr.S.html">S</a>: <code class="type">Set.S</code><code class="type">  with type elt = t</code></pre><div class="info">
+set of exprs
+</div>
+
+<pre><span class="keyword">module</span> <a href="Expr.M.html">M</a>: <code class="type">Map.S</code><code class="type">  with type key = t</code></pre><div class="info">
+map of exprs
+</div>
+
+<pre><code><span id="TYPEcounts"><span class="keyword">type</span> <code class="type"></code>counts</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcounts.consts">consts</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcounts.vars">vars</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcounts.nots">nots</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcounts.ors">ors</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcounts.xors">xors</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcounts.ands">ands</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcounts.lookups">lookups</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr></table>
+}
+
+<div class="info ">
+count gates<br>
+</div>
+
+
+<pre><span id="VALcounts"><span class="keyword">val</span> counts</span> : <code class="type">Uset.t -> <a href="Expr.html#TYPEt">t</a> -> Uset.t * <a href="Expr.html#TYPEcounts">counts</a></code></pre>
+<pre><span id="VALzero_counts"><span class="keyword">val</span> zero_counts</span> : <code class="type"><a href="Expr.html#TYPEcounts">counts</a></code></pre>
+<pre><span id="VALadd_counts"><span class="keyword">val</span> add_counts</span> : <code class="type"><a href="Expr.html#TYPEcounts">counts</a> -> <a href="Expr.html#TYPEcounts">counts</a> -> <a href="Expr.html#TYPEcounts">counts</a></code></pre>
+<pre><span id="VALprint_counts"><span class="keyword">val</span> print_counts</span> : <code class="type">Pervasives.out_channel -> <a href="Expr.html#TYPEcounts">counts</a> -> unit</code></pre>
+<pre><span id="VALcost"><span class="keyword">val</span> cost</span> : <code class="type"><a href="Expr.html#TYPEcounts">counts</a> -> int</code></pre>
+<pre><span id="VALstring_of_t"><span class="keyword">val</span> string_of_t</span> : <code class="type"><a href="Expr.html#TYPEt">t</a> -> string</code></pre><div class="info ">
+convert to string<br>
+</div>
+
+<pre><span id="VALmathjax_of_t"><span class="keyword">val</span> mathjax_of_t</span> : <code class="type"><a href="Expr.html#TYPEt">t</a> -> string</code></pre><div class="info ">
+convert to mathjax string<br>
+</div>
+
+<pre><span id="VALkbdd_string_of_t"><span class="keyword">val</span> kbdd_string_of_t</span> : <code class="type"><a href="Expr.html#TYPEt">t</a> -> string</code></pre><div class="info ">
+convert to kbdd compatible expression<br>
+</div>
+
+<pre><span id="VALcofactor"><span class="keyword">val</span> cofactor</span> : <code class="type"><a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">cofactor x p f</code> computes the cofactor of f wrt to x.  <code class="code">p=t</code> for
+    positive cofactor and <code class="code">p=f</code> for negative cofactor<br>
+</div>
+
+<pre><span id="VALdifference"><span class="keyword">val</span> difference</span> : <code class="type"><a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a></code></pre><div class="info ">
+boolean difference<br>
+</div>
+
+<pre><span id="VALforall"><span class="keyword">val</span> forall</span> : <code class="type"><a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a></code></pre><div class="info ">
+universal quantification<br>
+</div>
+
+<pre><span id="VALexists"><span class="keyword">val</span> exists</span> : <code class="type"><a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a></code></pre><div class="info ">
+existential quantification<br>
+</div>
+
+<pre><span id="VALsimplify"><span class="keyword">val</span> simplify</span> : <code class="type"><a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a></code></pre><div class="info ">
+perform basic simplifications<br>
+</div>
+
+<pre><span id="VALshannon_expansion"><span class="keyword">val</span> shannon_expansion</span> : <code class="type"><a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a></code></pre><div class="info ">
+<code class="code">F = xF_x + x'F_x'</code><br>
+</div>
+
+<pre><span id="VALeval"><span class="keyword">val</span> eval</span> : <code class="type">(<a href="Expr.html#TYPEt">t</a> * <a href="Expr.html#TYPEt">t</a>) list -> <a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEt">t</a></code></pre><div class="info ">
+evaluate at each given var by taking given cofactor<br>
+</div>
+
+<pre><span id="VALfind_vars"><span class="keyword">val</span> find_vars</span> : <code class="type"><a href="Expr.html#TYPEt">t</a> -> S.t</code></pre><div class="info ">
+find set of vars in expr<br>
+</div>
+
+<pre><span id="TYPEtruth_table"><span class="keyword">type</span> <code class="type"></code>truth_table</span> = <code class="type">(string * int) array * int array</code> </pre>
+
+
+<pre><span id="VALtruth_table"><span class="keyword">val</span> truth_table</span> : <code class="type"><a href="Expr.html#TYPEt">t</a> -> <a href="Expr.html#TYPEtruth_table">truth_table</a></code></pre>
+<pre><span id="VALhtml_of_truth_table"><span class="keyword">val</span> html_of_truth_table</span> : <code class="type"><a href="Expr.html#TYPEtruth_table">truth_table</a> -> string</code></pre>
+<pre><span id="VALhtml_of_truth_tables"><span class="keyword">val</span> html_of_truth_tables</span> : <code class="type"><a href="Expr.html#TYPEtruth_table">truth_table</a> list -> string</code></pre></body></html>

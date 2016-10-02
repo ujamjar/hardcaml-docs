@@ -1,0 +1,23 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Add" rel="Chapter" href="Add.html">
+<link title="Sorting" rel="Chapter" href="Sorting.html">
+<link title="Rac" rel="Chapter" href="Rac.html">
+<link title="Cordic" rel="Chapter" href="Cordic.html">
+<link title="Prefix" rel="Chapter" href="Prefix.html">
+<link title="Mul" rel="Chapter" href="Mul.html">
+<link title="Lfsr" rel="Chapter" href="Lfsr.html"><title>Mul</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">Make</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">functor</span>&nbsp;(<span class="constructor">B</span>&nbsp;:&nbsp;<span class="constructor">HardCaml</span>.<span class="constructor">Comb</span>.<span class="constructor">S</span>)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span>&nbsp;<span class="keyword">val</span>&nbsp;wallace&nbsp;:&nbsp;<span class="constructor">B</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">B</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">B</span>.t&nbsp;<span class="keyword">val</span>&nbsp;dadda&nbsp;:&nbsp;<span class="constructor">B</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">B</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">B</span>.t&nbsp;<span class="keyword">end</span><br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">Design</span>&nbsp;:&nbsp;<span class="constructor">HardCamlFramework</span>.<span class="constructor">Framework</span>.<span class="constructor">Design</span><br>
+<span class="keyword">end</span></code></body></html>

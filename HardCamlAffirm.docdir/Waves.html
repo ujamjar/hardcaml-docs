@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Bmc.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Props" rel="Chapter" href="Props.html">
+<link title="Transform_state" rel="Chapter" href="Transform_state.html">
+<link title="NuSMV" rel="Chapter" href="NuSMV.html">
+<link title="Bmc" rel="Chapter" href="Bmc.html">
+<link title="Waves" rel="Chapter" href="Waves.html"><title>Waves</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Bmc.html" title="Bmc">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Waves.html">Waves</a></h1>
+
+<pre><span class="keyword">module</span> Waves: <code class="code">sig</code> <a href="Waves.html">..</a> <code class="code">end</code></pre><div class="info module top">
+convert the data from a sat result from Bmc.run to waves<br>
+</div>
+<hr width="100%">
+
+<pre><span class="keyword">module</span> <a href="Waves.B.html">B</a>: <code class="type">HardCaml.Comb.S</code><code class="type"> </code></pre>
+<pre><span class="keyword">module</span> <a href="Waves.W.html">W</a>: <code class="type">HardCamlWaveTerm.Wave.W</code><code class="type">  with type elt = B.t</code></pre>
+<pre><span class="keyword">module</span> <a href="Waves.Widget.html">Widget</a>: <code class="type">module type of HardCamlWaveLTerm.Widget.Make(B)(W)</code></pre>
+<pre><span id="VALto_waves"><span class="keyword">val</span> to_waves</span> : <code class="type">int * (string * string array) list -> W.waves</code></pre><div class="info ">
+convert the data from a sat result from Bmc.run to waves<br>
+</div>
+
+<pre><span id="VALrun"><span class="keyword">val</span> run</span> : <code class="type">(int * (string * string array) list) Sattools.Result.t -> unit</code></pre><div class="info ">
+run interactive waveform viewer<br>
+</div>
+</body></html>

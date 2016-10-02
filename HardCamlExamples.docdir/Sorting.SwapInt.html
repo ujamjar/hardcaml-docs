@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Sorting.SwapHw.html">
+<link rel="Up" href="Sorting.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Add" rel="Chapter" href="Add.html">
+<link title="Sorting" rel="Chapter" href="Sorting.html">
+<link title="Rac" rel="Chapter" href="Rac.html">
+<link title="Cordic" rel="Chapter" href="Cordic.html">
+<link title="Prefix" rel="Chapter" href="Prefix.html">
+<link title="Mul" rel="Chapter" href="Mul.html">
+<link title="Lfsr" rel="Chapter" href="Lfsr.html"><title>Sorting.SwapInt</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="Sorting.html" title="Sorting">Up</a>
+&nbsp;<a class="post" href="Sorting.SwapHw.html" title="Sorting.SwapHw">Next</a>
+</div>
+<h1>Module <a href="type_Sorting.SwapInt.html">Sorting.SwapInt</a></h1>
+
+<pre><span class="keyword">module</span> SwapInt: <code class="type"><a href="Sorting.Swap.html">Swap</a></code><code class="type">  with type t = int</code></pre><div class="info module top">
+Sort lists of integers<br>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+<div class="info ">
+type of data to be sorted<br>
+</div>
+
+
+<pre><span id="VALcompare_swap"><span class="keyword">val</span> compare_swap</span> : <code class="type"><a href="Sorting.html#TYPEdirn">Sorting.dirn</a> -><br>       <a href="Sorting.Swap.html#TYPEt">t</a> -> <a href="Sorting.Swap.html#TYPEt">t</a> -> <a href="Sorting.Swap.html#TYPEt">t</a> * <a href="Sorting.Swap.html#TYPEt">t</a></code></pre><div class="info ">
+The main sorting operation.  <code class="code">compare_swap Up a b</code> will 
+      return <code class="code">(min a b, max a b)</code>.  <code class="code">compare_swap Down a b</code> will
+      sort the opposite way.<br>
+</div>
+
+<pre><span id="VALdelay"><span class="keyword">val</span> delay</span> : <code class="type"><a href="Sorting.Swap.html#TYPEt">t</a> -> <a href="Sorting.Swap.html#TYPEt">t</a></code></pre><div class="info ">
+<i>hardware implementation only</i> delays inserted appropriately 
+      into the datapath so each stage can be pipelined<br>
+</div>
+</body></html>

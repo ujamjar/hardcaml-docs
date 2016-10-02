@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Render.Styles.html">
+<link rel="next" href="Render.Make.html">
+<link rel="Up" href="Render.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Wave" rel="Chapter" href="Wave.html">
+<link title="Gfx" rel="Chapter" href="Gfx.html">
+<link title="Render" rel="Chapter" href="Render.html">
+<link title="Write" rel="Chapter" href="Write.html">
+<link title="Sim" rel="Chapter" href="Sim.html"><title>Render.Bounds</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Render.Styles.html" title="Render.Styles">Previous</a>
+&nbsp;<a class="up" href="Render.html" title="Render">Up</a>
+&nbsp;<a class="post" href="Render.Make.html" title="Render.Make">Next</a>
+</div>
+<h1>Module <a href="type_Render.Bounds.html">Render.Bounds</a></h1>
+
+<pre><span class="keyword">module</span> Bounds: <code class="code">sig</code> <a href="Render.Bounds.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.signals">signals</span>&nbsp;: <code class="type"><a href="Gfx.html#TYPErect">Gfx.rect</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.values">values</span>&nbsp;: <code class="type"><a href="Gfx.html#TYPErect">Gfx.rect</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.waves">waves</span>&nbsp;: <code class="type"><a href="Gfx.html#TYPErect">Gfx.rect</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.status">status</span>&nbsp;: <code class="type"><a href="Gfx.html#TYPErect">Gfx.rect</a></code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><span id="VALexpand_for_border"><span class="keyword">val</span> expand_for_border</span> : <code class="type"><a href="Gfx.html#TYPErect">Gfx.rect</a> -> <a href="Gfx.html#TYPErect">Gfx.rect</a></code></pre>
+<pre><span id="VALshrink_for_border"><span class="keyword">val</span> shrink_for_border</span> : <code class="type"><a href="Gfx.html#TYPErect">Gfx.rect</a> -> <a href="Gfx.html#TYPErect">Gfx.rect</a></code></pre>
+<pre><span id="VALfit_to_window"><span class="keyword">val</span> fit_to_window</span> : <code class="type">?signals:bool -><br>       ?values:bool -><br>       ?waves:bool -> ?status:bool -> ?border:bool -> <a href="Gfx.html#TYPErect">Gfx.rect</a> -> <a href="Render.Bounds.html#TYPEt">t</a></code></pre></body></html>

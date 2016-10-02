@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Prefix.html">
+<link rel="next" href="Lfsr.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Add" rel="Chapter" href="Add.html">
+<link title="Sorting" rel="Chapter" href="Sorting.html">
+<link title="Rac" rel="Chapter" href="Rac.html">
+<link title="Cordic" rel="Chapter" href="Cordic.html">
+<link title="Prefix" rel="Chapter" href="Prefix.html">
+<link title="Mul" rel="Chapter" href="Mul.html">
+<link title="Lfsr" rel="Chapter" href="Lfsr.html"><title>Mul</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Prefix.html" title="Prefix">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Lfsr.html" title="Lfsr">Next</a>
+</div>
+<h1>Module <a href="type_Mul.html">Mul</a></h1>
+
+<pre><span class="keyword">module</span> Mul: <code class="code">sig</code> <a href="Mul.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<h2 id="2_WallaceDaddatreemultipliers">Wallace/Dadda tree multipliers</h2>
+<p>
+
+  The Wallace/Dadda tree has three steps:
+<p>
+<ul>
+<li>Multiply (that is - AND) each bit of one of the arguments, by each bit of 
+    the other, yielding n^2 results.  Depending on position of the multiplied 
+    bits, the wires carry different weights, for example wire of bit 
+    carrying result of a2b3 is 32.</li>
+<li>Reduce the number of partial products to two by layers of full and half adders.</li>
+<li>Group the wires in two numbers, and add them with a conventional adder.</li>
+</ul>
+
+  They differ in stage 2 in how the results are combined
+<p>
+
+  <h3 id="3_wallace">wallace</h3>
+<p>
+<ul>
+<li>Take any three wires with the same weights and input them into a full adder. 
+    The result will be an output wire of the same weight and an output wire with 
+    a higher weight for each three input wires.</li>
+<li>If there are two wires of the same weight left, input them into a half adder.</li>
+<li>If there is just one wire left, connect it to the next layer.</li>
+</ul>
+
+  <h3 id="3_dadda">dadda</h3>
+<p>
+<ul>
+<li>Take any 3 wires with the same weights and input them into a full adder. The 
+    result will be an output wire of the same weight and an output wire with 
+    a higher weight for each 3 input wires.</li>
+<li>If there are 2 wires of the same weight left, and the current number of 
+    output wires with that weight is equal to 2 (modulo 3), input them into a 
+    half adder. Otherwise, pass them through to the next layer.</li>
+<li>If there is just 1 wire left, connect it to the next layer.</li>
+</ul>
+
+  However, when a layer carries at most 3 input wires for any weight, that 
+  layer will be the last one.  In this case, the Dadda tree will use half 
+  adder more aggressively (but still not as much as in a Wallace multiplier), 
+  to ensure that there are only two outputs for any weight. Then, the second 
+  rule above changes as follows:
+<p>
+<ul>
+<li>If there are 2 wires of the same weight left, and the current number of 
+    output wires with that weight is equal to 1 or 2 (modulo 3), input them 
+    into a half adder. Otherwise, pass them through to the next layer.</li>
+</ul>
+<br>
+</div>
+<hr width="100%">
+
+<pre><span class="keyword">module</span> <a href="Mul.Make.html">Make</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">B</code><code class="code"> : </code><code class="type">HardCaml.Comb.S</code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Mul.Make.html">..</a> <code class="code">end</code></div></pre>
+<pre><span class="keyword">module</span> <a href="Mul.Design.html">Design</a>: <code class="type">HardCamlFramework.Framework.Design</code><code class="type"> </code></pre></body></html>

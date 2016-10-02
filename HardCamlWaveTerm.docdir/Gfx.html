@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Wave.html">
+<link rel="next" href="Render.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Wave" rel="Chapter" href="Wave.html">
+<link title="Gfx" rel="Chapter" href="Gfx.html">
+<link title="Render" rel="Chapter" href="Render.html">
+<link title="Write" rel="Chapter" href="Write.html">
+<link title="Sim" rel="Chapter" href="Sim.html"><title>Gfx</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Wave.html" title="Wave">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Render.html" title="Render">Next</a>
+</div>
+<h1>Module <a href="type_Gfx.html">Gfx</a></h1>
+
+<pre><span class="keyword">module</span> Gfx: <code class="code">sig</code> <a href="Gfx.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Styling information<br>
+</div>
+<hr width="100%">
+
+<pre><span class="keyword">module</span> <a href="Gfx.Style.html">Style</a>: <code class="code">sig</code> <a href="Gfx.Style.html">..</a> <code class="code">end</code></pre>
+<pre><code><span id="TYPErect"><span class="keyword">type</span> <code class="type"></code>rect</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrect.r">r</span>&nbsp;: <code class="type">int</code>;</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+rows<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrect.c">c</span>&nbsp;: <code class="type">int</code>;</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+cols<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrect.w">w</span>&nbsp;: <code class="type">int</code>;</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+width<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrect.h">h</span>&nbsp;: <code class="type">int</code>;</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+height<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr></table>
+}
+
+<div class="info ">
+A rectangle (no really)<br>
+</div>
+
+
+<pre><code><span id="TYPEpiece"><span class="keyword">type</span> <code class="type"></code>piece</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.TL"><span class="constructor">TL</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.BR"><span class="constructor">BR</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.BL"><span class="constructor">BL</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.TR"><span class="constructor">TR</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.V"><span class="constructor">V</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.H"><span class="constructor">H</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.T"><span class="constructor">T</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.Tu"><span class="constructor">Tu</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.C"><span class="constructor">C</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.F"><span class="constructor">F</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.TH"><span class="constructor">TH</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.BH"><span class="constructor">BH</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.LH"><span class="constructor">LH</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.RH"><span class="constructor">RH</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.QTL"><span class="constructor">QTL</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.QBR"><span class="constructor">QBR</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.QBL"><span class="constructor">QBL</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTpiece.QTR"><span class="constructor">QTR</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><span id="VALunicode_of_piece"><span class="keyword">val</span> unicode_of_piece</span> : <code class="type"><a href="Gfx.html#TYPEpiece">piece</a> -> int</code></pre><div class="info ">
+unicode value of piece<br>
+</div>
+
+<pre><span class="keyword">module type</span> <a href="Gfx.Api.html">Api</a> = <code class="code">sig</code> <a href="Gfx.Api.html">..</a> <code class="code">end</code></pre><div class="info">
+Main graphics drawing API.
+</div>
+
+<pre><span class="keyword">module type</span> <a href="Gfx.Brick.html">Brick</a> = <code class="code">sig</code> <a href="Gfx.Brick.html">..</a> <code class="code">end</code></pre><div class="info">
+The basic functions needed to build the full API
+</div>
+
+<pre><span class="keyword">module</span> <a href="Gfx.Build.html">Build</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">B</code><code class="code"> : </code><code class="type"><a href="Gfx.Brick.html">Brick</a></code><code class="code">) -&gt; </code><code class="type"><a href="Gfx.Api.html">Api</a></code><code class="type"> 
+  with type ctx = B.ctx</code></div></pre><div class="info">
+Construct the API from a Brick implementation
+</div>
+
+<pre><span class="keyword">module</span> <a href="Gfx.In_memory.html">In_memory</a>: <code class="code">sig</code> <a href="Gfx.In_memory.html">..</a> <code class="code">end</code></pre><div class="info">
+In memory based API with no external requirements
+</div>
+</body></html>

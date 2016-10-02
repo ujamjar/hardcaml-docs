@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Mig.Basic_gates.html">
+<link rel="Up" href="Mig.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Expr" rel="Chapter" href="Expr.html">
+<link title="Pcn" rel="Chapter" href="Pcn.html">
+<link title="Gates" rel="Chapter" href="Gates.html">
+<link title="Mig" rel="Chapter" href="Mig.html">
+<link title="Bddx" rel="Chapter" href="Bddx.html">
+<link title="Cnf" rel="Chapter" href="Cnf.html">
+<link title="Sat" rel="Chapter" href="Sat.html">
+<link title="Kmap" rel="Chapter" href="Kmap.html">
+<link title="Algebraic" rel="Chapter" href="Algebraic.html">
+<link title="Espresso" rel="Chapter" href="Espresso.html"><title>Mig.Base</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Mig.Basic_gates.html" title="Mig.Basic_gates">Previous</a>
+&nbsp;<a class="up" href="Mig.html" title="Mig">Up</a>
+&nbsp;</div>
+<h1>Functor <a href="type_Mig.Base.html">Mig.Base</a></h1>
+
+<pre><span class="keyword">module</span> Base: <div class="sig_block"><code class="code">functor (</code><code class="code">Basic_gates</code><code class="code"> : </code><code class="type">module type of Basic_gates</code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Mig.Base.html">..</a> <code class="code">end</code></div></pre><table border="0" cellpadding="3" width="100%">
+<tr>
+<td align="left" valign="top" width="1%%"><b>Parameters: </b></td>
+<td>
+<table class="paramstable">
+<tr>
+<td align="center" valign="top" width="15%">
+<code>Basic_gates</code></td>
+<td align="center" valign="top">:</td>
+<td><code class="type">module type of Basic_gates</code>
+</table>
+</td>
+</tr>
+</table>
+<hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = <code class="type"><a href="Mig.html#TYPEedge">Mig.edge</a> list</code> </pre>
+
+
+<pre><span id="VALempty"><span class="keyword">val</span> empty</span> : <code class="type">'a list</code></pre>
+<pre><span id="VALgnd"><span class="keyword">val</span> gnd</span> : <code class="type">(<a href="Mig.html#TYPEmig">Mig.mig</a> * <a href="Mig.html#TYPEcompl">Mig.compl</a>) list</code></pre>
+<pre><span id="VALvdd"><span class="keyword">val</span> vdd</span> : <code class="type">(<a href="Mig.html#TYPEmig">Mig.mig</a> * <a href="Mig.html#TYPEcompl">Mig.compl</a>) list</code></pre>
+<pre><span id="VALwidth"><span class="keyword">val</span> width</span> : <code class="type">'a list -> int</code></pre>
+<pre><span id="VALconst"><span class="keyword">val</span> const</span> : <code class="type">string -> (<a href="Mig.html#TYPEmig">Mig.mig</a> * <a href="Mig.html#TYPEcompl">Mig.compl</a>) list</code></pre>
+<pre><span id="VALconsti"><span class="keyword">val</span> consti</span> : <code class="type">int -> int -> (<a href="Mig.html#TYPEmig">Mig.mig</a> * <a href="Mig.html#TYPEcompl">Mig.compl</a>) list</code></pre>
+<pre><span id="VALconcat"><span class="keyword">val</span> concat</span> : <code class="type">'a list list -> 'a list</code></pre>
+<pre><span id="VALselect"><span class="keyword">val</span> select</span> : <code class="type">'a list -> int -> int -> 'a list</code></pre>
+<pre><span id="VALto_int"><span class="keyword">val</span> to_int</span> : <code class="type">'a -> 'b</code></pre>
+<pre><span id="VALassert_same_width"><span class="keyword">val</span> assert_same_width</span> : <code class="type">'a list list -> int</code></pre>
+<pre><span id="VAL(~:)"><span class="keyword">val</span> (~:)</span> : <code class="type">('a * <a href="Mig.html#TYPEcompl">Mig.compl</a>) list -> ('a * <a href="Mig.html#TYPEcompl">Mig.compl</a>) list</code></pre>
+<pre><span id="VAL(|:)"><span class="keyword">val</span> (|:)</span> : <code class="type"><a href="Mig.html#TYPEedge">Mig.edge</a> list -> <a href="Mig.html#TYPEedge">Mig.edge</a> list -> (<a href="Mig.html#TYPEmig">Mig.mig</a> * <a href="Mig.html#TYPEcompl">Mig.compl</a>) list</code></pre>
+<pre><span id="VAL(&:)"><span class="keyword">val</span> (&amp;:)</span> : <code class="type"><a href="Mig.html#TYPEedge">Mig.edge</a> list -> <a href="Mig.html#TYPEedge">Mig.edge</a> list -> (<a href="Mig.html#TYPEmig">Mig.mig</a> * <a href="Mig.html#TYPEcompl">Mig.compl</a>) list</code></pre>
+<pre><span id="VAL(^:)"><span class="keyword">val</span> (^:)</span> : <code class="type"><a href="Mig.html#TYPEedge">Mig.edge</a> list -> <a href="Mig.html#TYPEedge">Mig.edge</a> list -> (<a href="Mig.html#TYPEmig">Mig.mig</a> * <a href="Mig.html#TYPEcompl">Mig.compl</a>) list</code></pre>
+<pre><span id="VALreduce"><span class="keyword">val</span> reduce</span> : <code class="type">('a -> 'a -> 'a) -> 'a list -> 'a</code></pre>
+<pre><span id="VAL(==:)"><span class="keyword">val</span> (==:)</span> : <code class="type"><a href="Mig.html#TYPEedge">Mig.edge</a> list -> <a href="Mig.html#TYPEedge">Mig.edge</a> list -> <a href="Mig.html#TYPEedge">Mig.edge</a> list</code></pre>
+<pre><span id="VALrepeat"><span class="keyword">val</span> repeat</span> : <code class="type">'a list -> int -> 'a list</code></pre>
+<pre><span id="VALmux"><span class="keyword">val</span> mux</span> : <code class="type"><a href="Mig.html#TYPEedge">Mig.edge</a> list -> <a href="Mig.html#TYPEedge">Mig.edge</a> list list -> <a href="Mig.html#TYPEedge">Mig.edge</a> list</code></pre>
+<pre><span id="VAL(+:)"><span class="keyword">val</span> (+:)</span> : <code class="type"><a href="Mig.html#TYPEedge">Mig.edge</a> list -> <a href="Mig.html#TYPEedge">Mig.edge</a> list -> (<a href="Mig.html#TYPEmig">Mig.mig</a> * <a href="Mig.html#TYPEcompl">Mig.compl</a>) list</code></pre>
+<pre><span id="VAL(-:)"><span class="keyword">val</span> (-:)</span> : <code class="type"><a href="Mig.html#TYPEedge">Mig.edge</a> list -> <a href="Mig.html#TYPEedge">Mig.edge</a> list -> (<a href="Mig.html#TYPEmig">Mig.mig</a> * <a href="Mig.html#TYPEcompl">Mig.compl</a>) list</code></pre>
+<pre><span id="VALzero"><span class="keyword">val</span> zero</span> : <code class="type">int -> (<a href="Mig.html#TYPEmig">Mig.mig</a> * <a href="Mig.html#TYPEcompl">Mig.compl</a>) list</code></pre>
+<pre><span id="VALmsb"><span class="keyword">val</span> msb</span> : <code class="type">'a list -> 'a list</code></pre>
+<pre><span id="VALbits"><span class="keyword">val</span> bits</span> : <code class="type"><a href="Mig.html#TYPEedge">Mig.edge</a> list -> <a href="Mig.html#TYPEedge">Mig.edge</a> list list</code></pre>
+<pre><span id="VAL( *: )"><span class="keyword">val</span> ( *: )</span> : <code class="type"><a href="Mig.html#TYPEedge">Mig.edge</a> list -> <a href="Mig.html#TYPEedge">Mig.edge</a> list -> <a href="Mig.html#TYPEedge">Mig.edge</a> list</code></pre>
+<pre><span id="VAL( *+ )"><span class="keyword">val</span> ( *+ )</span> : <code class="type"><a href="Mig.html#TYPEedge">Mig.edge</a> list -> <a href="Mig.html#TYPEedge">Mig.edge</a> list -> <a href="Mig.html#TYPEedge">Mig.edge</a> list</code></pre>
+<pre><span id="VALmux2"><span class="keyword">val</span> mux2</span> : <code class="type"><a href="Mig.html#TYPEedge">Mig.edge</a> -> <a href="Mig.html#TYPEedge">Mig.edge</a> -> <a href="Mig.html#TYPEedge">Mig.edge</a> -> <a href="Mig.html#TYPEmig">Mig.mig</a> * <a href="Mig.html#TYPEcompl">Mig.compl</a></code></pre>
+<pre><span id="VAL(<:)"><span class="keyword">val</span> (&lt;:)</span> : <code class="type"><a href="Mig.html#TYPEedge">Mig.edge</a> list -> <a href="Mig.html#TYPEedge">Mig.edge</a> list -> <a href="Mig.html#TYPEedge">Mig.edge</a> list</code></pre>
+<pre><span id="VALstring_of_edge1"><span class="keyword">val</span> string_of_edge1</span> : <code class="type"><a href="Mig.html#TYPEmig">Mig.mig</a> * 'a -> string</code></pre>
+<pre><span id="VALstring_of_mig"><span class="keyword">val</span> string_of_mig</span> : <code class="type"><a href="Mig.html#TYPEmig">Mig.mig</a> -> string</code></pre>
+<pre><span id="VALstring_of_edge"><span class="keyword">val</span> string_of_edge</span> : <code class="type"><a href="Mig.html#TYPEmig">Mig.mig</a> * <a href="Mig.html#TYPEcompl">Mig.compl</a> -> string</code></pre>
+<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type">(<a href="Mig.html#TYPEmig">Mig.mig</a> * <a href="Mig.html#TYPEcompl">Mig.compl</a>) list -> string</code></pre>
+<pre><span id="VALto_bstr"><span class="keyword">val</span> to_bstr</span> : <code class="type">'a -> 'b</code></pre>
+<pre><span id="VAL(<==)"><span class="keyword">val</span> (&lt;==)</span> : <code class="type">'a -> 'b -> unit</code></pre><div class="info ">
+we need something to do inputs.  for now, we'll do it over the applied functor<br>
+</div>
+
+<pre><span id="VAL(--)"><span class="keyword">val</span> (--)</span> : <code class="type">'a -> 'b -> 'a</code></pre>
+<pre><span id="VALwire"><span class="keyword">val</span> wire</span> : <code class="type">'a -> 'b list</code></pre></body></html>

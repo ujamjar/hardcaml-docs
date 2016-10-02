@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Techlib.Simlib.Op1.html">
+<link rel="next" href="Techlib.Simlib.Fa.html">
+<link rel="Up" href="Techlib.Simlib.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Yosys_atd_t" rel="Chapter" href="Yosys_atd_t.html">
+<link title="Yosys_atd_j" rel="Chapter" href="Yosys_atd_j.html">
+<link title="Io" rel="Chapter" href="Io.html">
+<link title="Lvt" rel="Chapter" href="Lvt.html">
+<link title="Techlib" rel="Chapter" href="Techlib.html">
+<link title="Cell" rel="Chapter" href="Cell.html">
+<link title="Import" rel="Chapter" href="Import.html"><title>Techlib.Simlib.Op2</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Techlib.Simlib.Op1.html" title="Techlib.Simlib.Op1">Previous</a>
+&nbsp;<a class="up" href="Techlib.Simlib.html" title="Techlib.Simlib">Up</a>
+&nbsp;<a class="post" href="Techlib.Simlib.Fa.html" title="Techlib.Simlib.Fa">Next</a>
+</div>
+<h1>Module <a href="type_Techlib.Simlib.Op2.html">Techlib.Simlib.Op2</a></h1>
+
+<pre><span class="keyword">module</span> Op2: <code class="code">sig</code> <a href="Techlib.Simlib.Op2.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><span class="keyword">module</span> <a href="Techlib.Simlib.Op2.P.html">P</a>: <code class="code">sig</code> <a href="Techlib.Simlib.Op2.P.html">..</a> <code class="code">end</code></pre>
+<pre><span class="keyword">module</span> <a href="Techlib.Simlib.Op2.I.html">I</a>: <code class="code">sig</code> <a href="Techlib.Simlib.Op2.I.html">..</a> <code class="code">end</code></pre>
+<pre><span class="keyword">module</span> <a href="Techlib.Simlib.Op2.O.html">O</a>: <code class="code">sig</code> <a href="Techlib.Simlib.Op2.O.html">..</a> <code class="code">end</code></pre>
+<pre><span class="keyword">module</span> <a href="Techlib.Simlib.Op2.W.html">W</a>: <code class="type">module type of Wrapper(P)(I)(O)</code></pre>
+<pre><span id="VALand_"><span class="keyword">val</span> and_</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALor_"><span class="keyword">val</span> or_</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALxor_"><span class="keyword">val</span> xor_</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALxnor_"><span class="keyword">val</span> xnor_</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALadd"><span class="keyword">val</span> add</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALsub"><span class="keyword">val</span> sub</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALmul"><span class="keyword">val</span> mul</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALshl"><span class="keyword">val</span> shl</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALshr"><span class="keyword">val</span> shr</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALsshl"><span class="keyword">val</span> sshl</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALsshr"><span class="keyword">val</span> sshr</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALshift"><span class="keyword">val</span> shift</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALlogic_and"><span class="keyword">val</span> logic_and</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALlogic_or"><span class="keyword">val</span> logic_or</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALlt"><span class="keyword">val</span> lt</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALle"><span class="keyword">val</span> le</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALgt"><span class="keyword">val</span> gt</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALge"><span class="keyword">val</span> ge</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALeq"><span class="keyword">val</span> eq</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALne"><span class="keyword">val</span> ne</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALeqx"><span class="keyword">val</span> eqx</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALnex"><span class="keyword">val</span> nex</span> : <code class="type">W.fn</code></pre>
+<pre><span id="VALcells"><span class="keyword">val</span> cells</span> : <code class="type">W.fn list</code></pre>
+<pre><span id="VALget_input_width"><span class="keyword">val</span> get_input_width</span> : <code class="type">int <a href="Techlib.Simlib.Op2.P.html#TYPEt">P.t</a> -> int <a href="Techlib.Simlib.Op2.I.html#TYPEt">I.t</a></code></pre>
+<pre><span id="VALget_output_width"><span class="keyword">val</span> get_output_width</span> : <code class="type">int <a href="Techlib.Simlib.Op2.P.html#TYPEt">P.t</a> -> int <a href="Techlib.Simlib.Op2.O.html#TYPEt">O.t</a></code></pre></body></html>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Techlib.Simlib.Memrd.P.html">
+<link rel="next" href="Techlib.Simlib.Memrd.O.html">
+<link rel="Up" href="Techlib.Simlib.Memrd.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Yosys_atd_t" rel="Chapter" href="Yosys_atd_t.html">
+<link title="Yosys_atd_j" rel="Chapter" href="Yosys_atd_j.html">
+<link title="Io" rel="Chapter" href="Io.html">
+<link title="Lvt" rel="Chapter" href="Lvt.html">
+<link title="Techlib" rel="Chapter" href="Techlib.html">
+<link title="Cell" rel="Chapter" href="Cell.html">
+<link title="Import" rel="Chapter" href="Import.html"><title>Techlib.Simlib.Memrd.I</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Techlib.Simlib.Memrd.P.html" title="Techlib.Simlib.Memrd.P">Previous</a>
+&nbsp;<a class="up" href="Techlib.Simlib.Memrd.html" title="Techlib.Simlib.Memrd">Up</a>
+&nbsp;<a class="post" href="Techlib.Simlib.Memrd.O.html" title="Techlib.Simlib.Memrd.O">Next</a>
+</div>
+<h1>Module <a href="type_Techlib.Simlib.Memrd.I.html">Techlib.Simlib.Memrd.I</a></h1>
+
+<pre><span class="keyword">module</span> I: <code class="code">sig</code> <a href="Techlib.Simlib.Memrd.I.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type">'a</code> t</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.en">en</span>&nbsp;: <code class="type">'a</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.clk">clk</span>&nbsp;: <code class="type">'a</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.addr">addr</span>&nbsp;: <code class="type">'a</code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><span id="VALt"><span class="keyword">val</span> t</span> : <code class="type">(string * int) <a href="Techlib.Simlib.Memrd.I.html#TYPEt">t</a></code></pre>
+<pre><span id="VALmap"><span class="keyword">val</span> map</span> : <code class="type">('a -> 'b) -> 'a <a href="Techlib.Simlib.Memrd.I.html#TYPEt">t</a> -> 'b <a href="Techlib.Simlib.Memrd.I.html#TYPEt">t</a></code></pre>
+<pre><span id="VALmap2"><span class="keyword">val</span> map2</span> : <code class="type">('a -> 'b -> 'c) -><br>       'a <a href="Techlib.Simlib.Memrd.I.html#TYPEt">t</a> -><br>       'b <a href="Techlib.Simlib.Memrd.I.html#TYPEt">t</a> -> 'c <a href="Techlib.Simlib.Memrd.I.html#TYPEt">t</a></code></pre>
+<pre><span id="VALto_list"><span class="keyword">val</span> to_list</span> : <code class="type">'a <a href="Techlib.Simlib.Memrd.I.html#TYPEt">t</a> -> 'a list</code></pre></body></html>

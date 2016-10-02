@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Pcn.Cubelist.html">
+<link rel="Up" href="Pcn.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Expr" rel="Chapter" href="Expr.html">
+<link title="Pcn" rel="Chapter" href="Pcn.html">
+<link title="Gates" rel="Chapter" href="Gates.html">
+<link title="Mig" rel="Chapter" href="Mig.html">
+<link title="Bddx" rel="Chapter" href="Bddx.html">
+<link title="Cnf" rel="Chapter" href="Cnf.html">
+<link title="Sat" rel="Chapter" href="Sat.html">
+<link title="Kmap" rel="Chapter" href="Kmap.html">
+<link title="Algebraic" rel="Chapter" href="Algebraic.html">
+<link title="Espresso" rel="Chapter" href="Espresso.html"><title>Pcn.Cube</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="Pcn.html" title="Pcn">Up</a>
+&nbsp;<a class="post" href="Pcn.Cubelist.html" title="Pcn.Cubelist">Next</a>
+</div>
+<h1>Module <a href="type_Pcn.Cube.html">Pcn.Cube</a></h1>
+
+<pre><span class="keyword">module</span> Cube: <code class="code">sig</code> <a href="Pcn.Cube.html">..</a> <code class="code">end</code></pre><div class="info module top">
+operations on a single cube<br>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+
+
+<pre><span id="VALinit"><span class="keyword">val</span> init</span> : <code class="type">int -> (int -> <a href="Pcn.html#TYPEv">Pcn.v</a>) -> <a href="Pcn.Cube.html#TYPEt">t</a></code></pre>
+<pre><span id="VALfold"><span class="keyword">val</span> fold</span> : <code class="type">('a -> <a href="Pcn.html#TYPEv">Pcn.v</a> -> 'a) -> 'a -> <a href="Pcn.Cube.html#TYPEt">t</a> -> 'a</code></pre>
+<pre><span id="VALmap"><span class="keyword">val</span> map</span> : <code class="type">(<a href="Pcn.html#TYPEv">Pcn.v</a> -> <a href="Pcn.html#TYPEv">Pcn.v</a>) -> <a href="Pcn.Cube.html#TYPEt">t</a> -> <a href="Pcn.Cube.html#TYPEt">t</a></code></pre>
+<pre><span id="VALnum_vars"><span class="keyword">val</span> num_vars</span> : <code class="type"><a href="Pcn.Cube.html#TYPEt">t</a> -> int</code></pre>
+<pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type"><a href="Pcn.Cube.html#TYPEt">t</a> -> int -> <a href="Pcn.html#TYPEv">Pcn.v</a></code></pre>
+<pre><span id="VALto_list"><span class="keyword">val</span> to_list</span> : <code class="type"><a href="Pcn.Cube.html#TYPEt">t</a> -> <a href="Pcn.html#TYPEv">Pcn.v</a> list</code></pre>
+<pre><span id="VALto_array"><span class="keyword">val</span> to_array</span> : <code class="type"><a href="Pcn.Cube.html#TYPEt">t</a> -> <a href="Pcn.html#TYPEv">Pcn.v</a> array</code></pre>
+<pre><span id="VALof_list"><span class="keyword">val</span> of_list</span> : <code class="type"><a href="Pcn.html#TYPEv">Pcn.v</a> list -> <a href="Pcn.Cube.html#TYPEt">t</a></code></pre>
+<pre><span id="VALof_array"><span class="keyword">val</span> of_array</span> : <code class="type"><a href="Pcn.html#TYPEv">Pcn.v</a> array -> <a href="Pcn.Cube.html#TYPEt">t</a></code></pre>
+<pre><span id="VALto_bits"><span class="keyword">val</span> to_bits</span> : <code class="type"><a href="Pcn.html#TYPEv">Pcn.v</a> -> int</code></pre>
+<pre><span id="VALof_bits"><span class="keyword">val</span> of_bits</span> : <code class="type">int -> <a href="Pcn.html#TYPEv">Pcn.v</a></code></pre>
+<pre><span id="VALintersect"><span class="keyword">val</span> intersect</span> : <code class="type"><a href="Pcn.Cube.html#TYPEt">t</a> -> <a href="Pcn.Cube.html#TYPEt">t</a> -> <a href="Pcn.Cube.html#TYPEt">t</a> option</code></pre>
+<pre><span id="VALsupercube"><span class="keyword">val</span> supercube</span> : <code class="type"><a href="Pcn.Cube.html#TYPEt">t</a> -> <a href="Pcn.Cube.html#TYPEt">t</a> -> <a href="Pcn.Cube.html#TYPEt">t</a></code></pre>
+<pre><span id="VALis_dontcare"><span class="keyword">val</span> is_dontcare</span> : <code class="type"><a href="Pcn.Cube.html#TYPEt">t</a> -> bool</code></pre>
+<pre><span id="VALcount_dontcare"><span class="keyword">val</span> count_dontcare</span> : <code class="type"><a href="Pcn.Cube.html#TYPEt">t</a> -> int</code></pre>
+<pre><span id="VALcount_true"><span class="keyword">val</span> count_true</span> : <code class="type"><a href="Pcn.Cube.html#TYPEt">t</a> -> int</code></pre>
+<pre><span id="VALcount_compl"><span class="keyword">val</span> count_compl</span> : <code class="type"><a href="Pcn.Cube.html#TYPEt">t</a> -> int</code></pre>
+<pre><span id="VALis_single_var"><span class="keyword">val</span> is_single_var</span> : <code class="type"><a href="Pcn.Cube.html#TYPEt">t</a> -> bool</code></pre>
+<pre><span id="VALsingle_var_true"><span class="keyword">val</span> single_var_true</span> : <code class="type">int -> int -> <a href="Pcn.Cube.html#TYPEt">t</a></code></pre>
+<pre><span id="VALsingle_var_compl"><span class="keyword">val</span> single_var_compl</span> : <code class="type">int -> int -> <a href="Pcn.Cube.html#TYPEt">t</a></code></pre>
+<pre><span id="VALone"><span class="keyword">val</span> one</span> : <code class="type">int -> <a href="Pcn.Cube.html#TYPEt">t</a></code></pre>
+<pre><span id="VALpositive_cofactor"><span class="keyword">val</span> positive_cofactor</span> : <code class="type">int -> <a href="Pcn.Cube.html#TYPEt">t</a> -> <a href="Pcn.Cube.html#TYPEt">t</a> option</code></pre>
+<pre><span id="VALnegative_cofactor"><span class="keyword">val</span> negative_cofactor</span> : <code class="type">int -> <a href="Pcn.Cube.html#TYPEt">t</a> -> <a href="Pcn.Cube.html#TYPEt">t</a> option</code></pre>
+<pre><span id="VALprint"><span class="keyword">val</span> print</span> : <code class="type"><a href="Pcn.Cube.html#TYPEt">t</a> -> unit</code></pre></body></html>

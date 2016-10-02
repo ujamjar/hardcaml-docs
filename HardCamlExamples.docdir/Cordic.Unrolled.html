@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Cordic.Double.html">
+<link rel="next" href="Cordic.Iterative.html">
+<link rel="Up" href="Cordic.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Add" rel="Chapter" href="Add.html">
+<link title="Sorting" rel="Chapter" href="Sorting.html">
+<link title="Rac" rel="Chapter" href="Rac.html">
+<link title="Cordic" rel="Chapter" href="Cordic.html">
+<link title="Prefix" rel="Chapter" href="Prefix.html">
+<link title="Mul" rel="Chapter" href="Mul.html">
+<link title="Lfsr" rel="Chapter" href="Lfsr.html"><title>Cordic.Unrolled</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Cordic.Double.html" title="Cordic.Double">Previous</a>
+&nbsp;<a class="up" href="Cordic.html" title="Cordic">Up</a>
+&nbsp;<a class="post" href="Cordic.Iterative.html" title="Cordic.Iterative">Next</a>
+</div>
+<h1>Functor <a href="type_Cordic.Unrolled.html">Cordic.Unrolled</a></h1>
+
+<pre><span class="keyword">module</span> Unrolled: <div class="sig_block"><code class="code">functor (</code><code class="code">B</code><code class="code"> : </code><code class="type">HardCaml.Comb.S</code><code class="code">) -&gt; </code><div class="sig_block"><code class="code">functor (</code><code class="code">P</code><code class="code"> : </code><code class="type"><a href="Cordic.Fixpt.html">Fixpt</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Cordic.Unrolled.html">..</a> <code class="code">end</code></div></div></pre><div class="info module top">
+Fully unrolled combinatorial or pipelined CORDIC implementation.
+    Suitable for implementation with <code class="code">bits</code> (combinatorial only) 
+    or <code class="code">signals</code>.<br>
+</div>
+<table border="0" cellpadding="3" width="100%">
+<tr>
+<td align="left" valign="top" width="1%%"><b>Parameters: </b></td>
+<td>
+<table class="paramstable">
+<tr>
+<td align="center" valign="top" width="15%">
+<code>B</code></td>
+<td align="center" valign="top">:</td>
+<td><code class="type">HardCaml.Comb.S</code>
+<tr>
+<td align="center" valign="top" width="15%">
+<code>P</code></td>
+<td align="center" valign="top">:</td>
+<td><code class="type"><a href="Cordic.Fixpt.html">Fixpt</a></code>
+</table>
+</td>
+</tr>
+</table>
+<hr width="100%">
+
+<pre><span id="VALstep"><span class="keyword">val</span> step</span> : <code class="type">x:B.t -><br>       xsft:B.t -><br>       y:B.t -> ysft:B.t -> z:B.t -> d:B.t -> m:B.t -> e:B.t -> B.t * B.t * B.t</code></pre><br>
+system<br>
+
+<pre><span id="VALcircular"><span class="keyword">val</span> circular</span> : <code class="type">B.t</code></pre>
+<pre><span id="VALhyperbolic"><span class="keyword">val</span> hyperbolic</span> : <code class="type">B.t</code></pre>
+<pre><span id="VALlinear"><span class="keyword">val</span> linear</span> : <code class="type">B.t</code></pre><br>
+modes<br>
+
+<pre><span id="VALrotation"><span class="keyword">val</span> rotation</span> : <code class="type">B.t</code></pre>
+<pre><span id="VALvectoring"><span class="keyword">val</span> vectoring</span> : <code class="type">B.t</code></pre>
+<pre><span id="VALinverse"><span class="keyword">val</span> inverse</span> : <code class="type">B.t</code></pre>
+<pre><span id="VALcordic"><span class="keyword">val</span> cordic</span> : <code class="type">?pipe:(B.t -> B.t) -><br>       system:B.t -><br>       mode:B.t -> iters:int -> c:B.t -> x:B.t -> y:B.t -> z:B.t -> B.t * B.t * B.t</code></pre><div class="info ">
+CORDIC implementation. <code class="code">pipe</code> should be set to <code class="code">reg r_spec enable</code> to enable
+      piplineing. Otherwise the circuit is combinatorial.<br>
+</div>
+</body></html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Compile.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Utils" rel="Chapter" href="Utils.html">
+<link title="Globals" rel="Chapter" href="Globals.html">
+<link title="Info" rel="Chapter" href="Info.html">
+<link title="Compile" rel="Chapter" href="Compile.html">
+<link title="Sim" rel="Chapter" href="Sim.html"><title>Sim</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Compile.html" title="Compile">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Sim.html">Sim</a></h1>
+
+<pre><span class="keyword">module</span> Sim: <code class="code">sig</code> <a href="Sim.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><span class="keyword">module</span> <a href="Sim.Sc.html">Sc</a>: <code class="type">HardCaml.Signal.Comb</code></pre>
+<pre><span class="keyword">module</span> <a href="Sim.St.html">St</a>: <code class="type">HardCaml.Signal.Types</code></pre>
+<pre><span id="TYPEcyclesim"><span class="keyword">type</span> <code class="type"></code>cyclesim</span> = <code class="type">HardCaml.Bits_ext.Comb.BigarraybitsNativeint.t HardCaml.Cyclesim.Api.cyclesim</code> </pre>
+
+
+<pre><span id="VALreset_value"><span class="keyword">val</span> reset_value</span> : <code class="type">St.signal -> Llvm.llvalue</code></pre>
+<pre><span id="VALcompile"><span class="keyword">val</span> compile</span> : <code class="type">int -> HardCaml.Circuit.t -> Llvm.llmodule</code></pre>
+<pre><span id="VALmake"><span class="keyword">val</span> make</span> : <code class="type">HardCaml.Circuit.t -><br>       (HardCaml.Bits_ext.Utils_ext.bani * int) HardCaml.Cyclesim.Api.cyclesim</code></pre>
+<pre><span id="VALwrite"><span class="keyword">val</span> write</span> : <code class="type">string -> HardCaml.Circuit.t -> unit</code></pre>
+<pre><span id="VALload"><span class="keyword">val</span> load</span> : <code class="type">string -><br>       (HardCaml.Bits_ext.Utils_ext.bani * int) HardCaml.Cyclesim.Api.cyclesim</code></pre>
+<pre><span class="keyword">module</span> <a href="Sim.Make.html">Make</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">B</code><code class="code"> : </code><code class="type">HardCaml.Bits_ext.S</code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Sim.Make.html">..</a> <code class="code">end</code></div></pre>
+<pre><span class="keyword">module</span> <a href="Sim.Gen.html">Gen</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">B</code><code class="code"> : </code><code class="type">HardCaml.Bits_ext.S</code><code class="code">) -&gt; </code><div class="sig_block"><code class="code">functor (</code><code class="code">I</code><code class="code"> : </code><code class="type">HardCaml.Interface.S</code><code class="code">) -&gt; </code><div class="sig_block"><code class="code">functor (</code><code class="code">O</code><code class="code"> : </code><code class="type">HardCaml.Interface.S</code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Sim.Gen.html">..</a> <code class="code">end</code></div></div></div></pre></body></html>

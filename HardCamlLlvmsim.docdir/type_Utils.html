@@ -1,0 +1,49 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Utils" rel="Chapter" href="Utils.html">
+<link title="Globals" rel="Chapter" href="Globals.html">
+<link title="Info" rel="Chapter" href="Info.html">
+<link title="Compile" rel="Chapter" href="Compile.html">
+<link title="Sim" rel="Chapter" href="Sim.html"><title>Utils</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">St</span>&nbsp;=&nbsp;<span class="constructor">HardCaml</span>.<span class="constructor">Signal</span>.<span class="constructor">Types</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;(&nbsp;&gt;&gt;&nbsp;)&nbsp;:&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>b)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="keywordsign">'</span>b&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>c)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>c<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;(&nbsp;&lt;&lt;&nbsp;)&nbsp;:&nbsp;(<span class="keywordsign">'</span>b&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>c)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>b)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>c<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;(&nbsp;|&gt;&nbsp;)&nbsp;:&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>b)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>b<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;global_context&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.llcontext<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;builder&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.llbuilder<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;platform_bits&nbsp;:&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;pbits&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;int_type&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.lltype<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;const_int&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.llvalue<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;const_of_signal&nbsp;:&nbsp;<span class="constructor">St</span>.signal&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.llvalue<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;const_string&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.llvalue<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;int64&nbsp;:&nbsp;<span class="constructor">Llvm</span>.lltype<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;int32&nbsp;:&nbsp;<span class="constructor">Llvm</span>.lltype<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;int8&nbsp;:&nbsp;<span class="constructor">Llvm</span>.lltype<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;void&nbsp;:&nbsp;<span class="constructor">Llvm</span>.lltype<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;ptr_type&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.lltype&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.lltype<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;zero64&nbsp;:&nbsp;<span class="constructor">Llvm</span>.llvalue<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;zero32&nbsp;:&nbsp;<span class="constructor">Llvm</span>.llvalue<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;zero8&nbsp;:&nbsp;<span class="constructor">Llvm</span>.llvalue<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;build_uresize&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Llvm</span>.llvalue&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.llbuilder&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.llvalue<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;make_switch&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.llvalue&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.llbasicblock&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.llbuilder&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;append_block&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.llvalue&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.llbasicblock<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;func&nbsp;=&nbsp;{&nbsp;func&nbsp;:&nbsp;<span class="constructor">Llvm</span>.llvalue;&nbsp;builder&nbsp;:&nbsp;<span class="constructor">Llvm</span>.llbuilder;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;make_function&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Llvm</span>.llmodule&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.lltype&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Llvm</span>.lltype&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="keywordsign">'</span>b&nbsp;<span class="constructor">Utils</span>.func&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;name&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">St</span>.signal&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;memsize&nbsp;:&nbsp;<span class="constructor">St</span>.signal&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;split&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;list&nbsp;*&nbsp;<span class="keywordsign">'</span>a&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;assert_valid_function&nbsp;:&nbsp;<span class="constructor">Llvm</span>.llvalue&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+<span class="keyword">end</span></code></body></html>

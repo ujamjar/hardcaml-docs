@@ -1,0 +1,20 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Props" rel="Chapter" href="Props.html">
+<link title="Transform_state" rel="Chapter" href="Transform_state.html">
+<link title="NuSMV" rel="Chapter" href="NuSMV.html">
+<link title="Bmc" rel="Chapter" href="Bmc.html">
+<link title="Waves" rel="Chapter" href="Waves.html"><title>Bmc.Init_state</title>
+</head>
+<body>
+<code class="code"><span class="keyword">functor</span>&nbsp;(<span class="constructor">B</span>&nbsp;:&nbsp;<span class="constructor">HardCaml</span>.<span class="constructor">Comb</span>.<span class="constructor">S</span>)&nbsp;(<span class="constructor">B_sim</span>&nbsp;:&nbsp;<span class="constructor">HardCaml</span>.<span class="constructor">Comb</span>.<span class="constructor">S</span>)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;init_state&nbsp;:&nbsp;<span class="constructor">HardCaml</span>.<span class="constructor">Signal</span>.<span class="constructor">Comb</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">B</span>.t<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;init_from_sim&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">B_sim</span>.t&nbsp;<span class="constructor">HardCaml</span>.<span class="constructor">Cyclesim</span>.<span class="constructor">Api</span>.cyclesim&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">HardCaml</span>.<span class="constructor">Signal</span>.<span class="constructor">Comb</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">B</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">end</span></code></body></html>

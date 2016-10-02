@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Yosys_atd_j.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Yosys_atd_t" rel="Chapter" href="Yosys_atd_t.html">
+<link title="Yosys_atd_j" rel="Chapter" href="Yosys_atd_j.html">
+<link title="Io" rel="Chapter" href="Io.html">
+<link title="Lvt" rel="Chapter" href="Lvt.html">
+<link title="Techlib" rel="Chapter" href="Techlib.html">
+<link title="Cell" rel="Chapter" href="Cell.html">
+<link title="Import" rel="Chapter" href="Import.html"><title>Yosys_atd_t</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Yosys_atd_j.html" title="Yosys_atd_j">Next</a>
+</div>
+<h1>Module <a href="type_Yosys_atd_t.html">Yosys_atd_t</a></h1>
+
+<pre><span class="keyword">module</span> Yosys_atd_t: <code class="code">sig</code> <a href="Yosys_atd_t.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><span id="TYPEdyn"><span class="keyword">type</span> <code class="type"></code>dyn</span> = <code class="type">Yojson.Safe.json</code> </pre>
+
+
+<pre><span id="TYPEdirection"><span class="keyword">type</span> <code class="type"></code>direction</span> = <code class="type">[ `Input | `Output ]</code> </pre>
+
+
+<pre><span id="TYPEbits"><span class="keyword">type</span> <code class="type"></code>bits</span> = <code class="type"><a href="Yosys_atd_t.html#TYPEdyn">dyn</a> list</code> </pre>
+
+
+<pre><code><span id="TYPEport"><span class="keyword">type</span> <code class="type"></code>port</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTport.direction">direction</span>&nbsp;: <code class="type"><a href="Yosys_atd_t.html#TYPEdirection">direction</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTport.bits">bits</span>&nbsp;: <code class="type"><a href="Yosys_atd_t.html#TYPEbits">bits</a></code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><span id="TYPEparam_value"><span class="keyword">type</span> <code class="type"></code>param_value</span> = <code class="type"><a href="Yosys_atd_t.html#TYPEdyn">dyn</a></code> </pre>
+
+
+<pre><code><span id="TYPEattributes"><span class="keyword">type</span> <code class="type"></code>attributes</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTattributes.src">src</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTattributes.full_case">full_case</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTattributes.parallel_case">parallel_case</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTattributes.init">init</span>&nbsp;: <code class="type"><a href="Yosys_atd_t.html#TYPEdyn">dyn</a> option</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTattributes.unused_bits">unused_bits</span>&nbsp;: <code class="type">string option</code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><code><span id="TYPEnetname"><span class="keyword">type</span> <code class="type"></code>netname</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTnetname.hide_name">hide_name</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTnetname.bits">bits</span>&nbsp;: <code class="type"><a href="Yosys_atd_t.html#TYPEbits">bits</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTnetname.attributes">attributes</span>&nbsp;: <code class="type"><a href="Yosys_atd_t.html#TYPEattributes">attributes</a></code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><code><span id="TYPEcell"><span class="keyword">type</span> <code class="type"></code>cell</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcell.hide_name">hide_name</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcell.typ">typ</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcell.parameters">parameters</span>&nbsp;: <code class="type">(string * <a href="Yosys_atd_t.html#TYPEparam_value">param_value</a>) list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcell.attributes">attributes</span>&nbsp;: <code class="type"><a href="Yosys_atd_t.html#TYPEattributes">attributes</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcell.port_directions">port_directions</span>&nbsp;: <code class="type">(string * <a href="Yosys_atd_t.html#TYPEdirection">direction</a>) list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcell.connections">connections</span>&nbsp;: <code class="type">(string * <a href="Yosys_atd_t.html#TYPEbits">bits</a>) list</code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><code><span id="TYPEmodl"><span class="keyword">type</span> <code class="type"></code>modl</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTmodl.ports">ports</span>&nbsp;: <code class="type">(string * <a href="Yosys_atd_t.html#TYPEport">port</a>) list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTmodl.cells">cells</span>&nbsp;: <code class="type">(string * <a href="Yosys_atd_t.html#TYPEcell">cell</a>) list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTmodl.netnames">netnames</span>&nbsp;: <code class="type">(string * <a href="Yosys_atd_t.html#TYPEnetname">netname</a>) list</code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.creator">creator</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.modl">modl</span>&nbsp;: <code class="type">(string * <a href="Yosys_atd_t.html#TYPEmodl">modl</a>) list</code>;</code></td>
+
+</tr></table>
+}
+
+
+</body></html>

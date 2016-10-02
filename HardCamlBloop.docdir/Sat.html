@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Cnf.html">
+<link rel="next" href="Kmap.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Expr" rel="Chapter" href="Expr.html">
+<link title="Pcn" rel="Chapter" href="Pcn.html">
+<link title="Gates" rel="Chapter" href="Gates.html">
+<link title="Mig" rel="Chapter" href="Mig.html">
+<link title="Bddx" rel="Chapter" href="Bddx.html">
+<link title="Cnf" rel="Chapter" href="Cnf.html">
+<link title="Sat" rel="Chapter" href="Sat.html">
+<link title="Kmap" rel="Chapter" href="Kmap.html">
+<link title="Algebraic" rel="Chapter" href="Algebraic.html">
+<link title="Espresso" rel="Chapter" href="Espresso.html"><title>Sat</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Cnf.html" title="Cnf">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Kmap.html" title="Kmap">Next</a>
+</div>
+<h1>Module <a href="type_Sat.html">Sat</a></h1>
+
+<pre><span class="keyword">module</span> Sat: <code class="code">sig</code> <a href="Sat.html">..</a> <code class="code">end</code></pre><div class="info module top">
+interface to minisat<br>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEvec_result"><span class="keyword">type</span> <code class="type"></code>vec_result</span> = <code class="type">string * Sattools.Lbool.t array</code> </pre>
+<div class="info ">
+computed value for some input vector<br>
+</div>
+
+
+<pre><span id="TYPEnext_sat_result"><span class="keyword">type</span> <code class="type"></code>next_sat_result</span> = <code class="type">unit -> <a href="Sat.html#TYPEsat_result">sat_result</a></code> </pre>
+
+
+<pre><span id="TYPEsat_result"><span class="keyword">type</span> <code class="type"></code>sat_result</span> = <code class="type">(<a href="Sat.html#TYPEvec_result">vec_result</a> list * <a href="Sat.html#TYPEnext_sat_result">next_sat_result</a>) Sattools.Result.t</code> </pre>
+<div class="info ">
+either sat, with an appropriate assignment, or unsat<br>
+</div>
+
+
+<pre><span id="VALof_expr"><span class="keyword">val</span> of_expr</span> : <code class="type">?solver:string -><br>       ?verbose:bool -> ?banned:<a href="Expr.html#TYPEt">Expr.t</a> list list -> <a href="Expr.html#TYPEt">Expr.t</a> -> <a href="Sat.html#TYPEsat_result">sat_result</a></code></pre><div class="info ">
+run solver on a boolean expression.
+<p>
+
+    Converts the input expression to CNF form using the
+    <code class="code">Tseitin</code> transformation.
+<p>
+
+    Returns `unsat if no assignment to the input variables could
+    be found that makes the result true.
+<p>
+
+    Otherwise returns `sat with a solution for the input variables and
+    a function to find the next solution.
+<p>
+
+    Specific solutions can be banned by providing an expression which should
+    evaluate to <code class="code">var</code> or <code class="code">~: var</code>.  Overly complex expressions (those which
+    can't be constant optimised to the required form) will raise an 
+    exception.  For convenience, expressions resulting in T or F will be ignored.<br>
+</div>
+
+<pre><span id="EXCEPTIONSat_signal_width_not_1"><span class="keyword">exception</span> Sat_signal_width_not_1</span></pre>
+
+<pre><span id="EXCEPTIONSat_banned_expr_too_complex"><span class="keyword">exception</span> Sat_banned_expr_too_complex</span></pre>
+
+<pre><span id="VALof_signal"><span class="keyword">val</span> of_signal</span> : <code class="type">?solver:string -><br>       ?verbose:bool -> ?banned:Gates.Comb.t list -> Gates.Comb.t -> <a href="Sat.html#TYPEsat_result">sat_result</a></code></pre><div class="info ">
+run the solver on a signal.  Raises <code class="code">Sat_signal_width_not_1</code> if the signal
+    is not 1 bit wide. 
+<p>
+
+    To ban an input variable from taking a particular value use an expression
+    like <code class="code">~: (a ^:. 23)</code>.<br>
+</div>
+
+<pre><span id="VALstring_of_vec_result"><span class="keyword">val</span> string_of_vec_result</span> : <code class="type">?unknown:char -> <a href="Sat.html#TYPEvec_result">vec_result</a> -> string</code></pre><div class="info ">
+convert result to a string<br>
+</div>
+
+<pre><span id="VALreport_soln"><span class="keyword">val</span> report_soln</span> : <code class="type"><a href="Sat.html#TYPEvec_result">vec_result</a> list -> unit</code></pre><div class="info ">
+print results<br>
+</div>
+
+<pre><span id="VALreport"><span class="keyword">val</span> report</span> : <code class="type"><a href="Sat.html#TYPEsat_result">sat_result</a> -> unit</code></pre></body></html>
