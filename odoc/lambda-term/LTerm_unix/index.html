@@ -1,9 +1,0 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>LTerm_unix (lambda-term.LTerm_unix)</title><link rel="stylesheet" href="../../odoc.css"/><meta charset="utf-8"/></head><body><div class="odoc-doc"><a href="../index.html">Up</a><div class="intro"><h1><span class="keyword">Module </span><a href="../#/LTerm_unix">LTerm_unix</a></h1></div><div><div class="doc">Unix specific functions</div><div><div class="region" id="/sigwinch.val"><a href="#/sigwinch.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>sigwinch : int option</div><div class="doc">The number of the signal used to indicate that the terminal size
-have changed. It is <code>None</code> on windows.</div></div></div><div class="region" id="/system_encoding.val"><a href="#/system_encoding.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>system_encoding : string</div><div class="doc">The encoding used by the system.</div></div></div><div class="region" id="/parse_event.val"><a href="#/parse_event.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>parse_event : ?escape_time:float -&gt; CamomileLibraryDyn.Camomile.CharEncoding.t -&gt; char <a href="../../lwt/Lwt_stream/index.html#/t.typ">Lwt_stream.t</a> -&gt; <a href="../LTerm_event/index.html#/t.typ">LTerm_event.t</a> <a href="../../lwt/Lwt/index.html#/t.typ">Lwt.t</a></div><div class="doc"><code>parse_event encoding stream</code> parses one event from the given
-input stream. <code>encoding</code> is the character encoding used to
-decode non-ascii characters. It must be a converter from the
-stream encoding to &quot;UCS-4BE&quot;. If an invalid sequence is
-encountered in the input, it fallbacks to Latin-1. <code>escape_time</code>
-is the time waited before returning the escape key. It defaults
-to <code>0.1</code>.</div></div></div></div></div></div></body></html>
