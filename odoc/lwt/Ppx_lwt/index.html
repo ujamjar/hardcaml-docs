@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Ppx_lwt (lwt.Ppx_lwt)</title><link rel="stylesheet" href="../../odoc.css"/><meta charset="utf-8"/></head><body><div class="odoc-doc"><a href="../index.html">Up</a><div class="intro"><h1><span class="keyword">Module </span><a href="../#/Ppx_lwt">Ppx_lwt</a></h1></div><div><div class="doc">Ppx syntax extension for Lwt</div><div><div class="doc"><h2>Ppx extensions</h2><br/>This Ppx extension adds various syntactic shortcut for lwt programming.
+It needs OCaml &gt;= 4.02 and <a href="https://github.com/alainfrisch/ppx_tools">ppx_tools</a>.<br/>To use it, simply use the ocamlfind package <code>lwt.ppx</code>.<br/>This extension adds the following syntax:<br/><ul><li>lwt-binding:</li></ul><pre>
+let%lwt ch = get_char stdin in
+code
+   </pre><br/>is the same as <code>bind (get_char stdin) (fun ch -&gt; code)</code>.<br/>Moreover, it supports parallel binding:<br/><pre>
+let%lwt x = do_something1 ()
+and y = do_something2 in
+code
+   </pre><br/>will run <code>do_something1 ()</code> and <code>do_something2 ()</code>, then
+bind their results to <code>x</code> and <code>y</code>. It is the same as:<br/><pre>
+let t1 = do_something1
+and t2 = do_something2 in
+bind t1 (fun x -&gt; bind t2 (fun y -&gt; code))
+   </pre><br/><ul><li>exception catching:</li></ul><pre>
+try%lwt
+  &lt;expr&gt;
+with
+  &lt;branches&gt;
+   </pre><br/>For example:<br/><pre>
+try%lwt
+  f x
+with
+  | Failure msg -&gt;
+      prerr_endline msg;
+      return ()
+   </pre><br/>is expanded to:<br/><pre>
+catch (fun () -&gt; f x)
+  (function
+    | Failure msg -&gt;
+        prerr_endline msg;
+        return ()
+    | exn -&gt;
+        Lwt.fail exn)
+   </pre><br/>Note that the <code>exn -&gt; Lwt.fail exn</code> branch is automatically added
+when needed.<br/><ul><li>finalizer:</li></ul><pre>
+     (&lt;expr&gt;) [%finally &lt;expr&gt;]
+   </pre><br/>You can use <code>[%lwt.finally ...]</code> instead of <code>[%finally ...]</code>.<br/><ul><li>assertion:</li></ul><pre>
+     assert%lwt &lt;expr&gt;
+   </pre><br/><ul><li>for loop:</li></ul><pre>
+for%lwt i = &lt;expr&gt; to &lt;expr&gt; do
+  &lt;expr&gt;
+done
+   </pre><br/>and:<br/><pre>
+for%lwt i = &lt;expr&gt; downto &lt;expr&gt; do
+  &lt;expr&gt;
+done
+   </pre><br/><ul><li>while loop:</li></ul><pre>
+while%lwt &lt;expr&gt; do
+  &lt;expr&gt;
+done
+   </pre><br/><ul><li>pattern matching:</li></ul><pre>
+match%lwt &lt;expr&gt; with
+  | &lt;patt_1&gt; -&gt; &lt;expr_1&gt;
+      ...
+  | &lt;patt_n&gt; -&gt; &lt;expr_n&gt;
+   </pre><br/>Exception cases are also supported:<br/><pre>
+match%lwt &lt;expr&gt; with
+  | exception &lt;exn&gt; -&gt; &lt;expr_1&gt;
+  | &lt;patt_2&gt; -&gt; &lt;expr_2&gt;
+      ...
+  | &lt;patt_n&gt; -&gt; &lt;expr_n&gt;
+   </pre><br/><ul><li>conditional:</li></ul><pre>
+if%lwt &lt;expr&gt; then
+  &lt;expr_1&gt;
+else
+  &lt;expr_2&gt;
+   </pre><br/>and<br/><pre>
+     if%lwt &lt;expr&gt; then &lt;expr_1&gt;
+   </pre><br/><ul><li>exception raising:</li></ul>For all other expression, the construct
+<pre>
+     [%lwt &lt;expr&gt;]
+   </pre><br/>is expanded to:
+<pre>
+     Lwt.catch (fun () -&gt; &lt;expr&gt;) Lwt.fail
+   </pre><br/>It allows to encode the old <code>raise_lwt &lt;e&gt;</code> as <code>[%lwt raise &lt;e&gt;]</code>, and offers a convenient way to interact with non-Lwt code.<br/><h2>Debug</h2><br/>By default, the debug mode is enabled. This means that the <code>backtrace</code> versions of the <code>bind</code>, <code>finalize</code> and <code>catch</code> functions are used, enabling proper backtraces for the Lwt exceptions.<br/>The debug mode can be disabled with the option <code>-no-debug</code>:<br/><pre>
+$ ocamlfind ocamlc -package lwt.ppx \
+    -ppxopt lwt.ppx,-no-debug -linkpkg -o foo foo.ml
+   </pre><br/><h2>Sequence</h2><br/>It is also possible to sequence Lwt operations with the <code>&gt;&gt;</code> operator:
+<pre>
+     write stdio &quot;Hello, &quot; &gt;&gt; write stdio &quot;world!&quot;
+   </pre><br/>By default, each operation must return <code>unit Lwt.t</code>. This constraint can be
+lifted with the option <code>-no-strict-sequence</code>. The operator can be disabled
+with the option <code>-no-sequence</code>.
+Note that unlike <code>&gt;&gt;=</code>, <code>&gt;&gt;</code> is not an OCaml value. it is a piece of syntax
+added by the ppx rewriter - i.e., you cannot refer to <code>(&gt;&gt;)</code>.<br/><h2>Logging</h2><br/>The logging syntax extension is enabled with <code>-log</code>.
+It will replace expressions of the form:<br/><pre>
+     Lwt_log.info_f ~section &quot;x = %d&quot; x
+   </pre><br/>by<br/><pre>
+if Lwt_log.Section.level section &lt;= Lwt_log.Info then
+  Lwt_log.info_f ~section &quot;x = %d&quot; x
+else
+  return ()
+   </pre><br/>Notes:<br/><ul><li>The application must be complete. For example: <code>Log.info &quot;%d&quot;</code>
+will make compilation fail.</li></ul><ul><li>Debug messages are removed if the option <code>-no-debug</code> is passed.</li></ul></div></div></div></div></body></html>

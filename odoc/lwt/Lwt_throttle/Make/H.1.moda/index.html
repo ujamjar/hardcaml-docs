@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>H.1 (lwt.Lwt_throttle.Make.H.1)</title><link rel="stylesheet" href="../../../../odoc.css"/><meta charset="utf-8"/></head><body><div class="odoc-doc"><a href="../index.html">Up</a><div class="intro"><h1><span class="keyword">Parameter </span><a href="../#/H.1.moda">H.1</a></h1></div><div><div class="region" id="/t.typ"><a href="#/t.typ" class="anchor"></a><div class="typ"><div class="def"><span class="keyword">type </span>t</div><div class="doc">The type of the hashtable keys.</div></div></div><div class="region" id="/equal.val"><a href="#/equal.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>equal : <a href="index.html#/t.typ">t</a> -&gt; <a href="index.html#/t.typ">t</a> -&gt; bool</div><div class="doc">The equality predicate used to compare keys.</div></div></div><div class="region" id="/hash.val"><a href="#/hash.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>hash : <a href="index.html#/t.typ">t</a> -&gt; int</div><div class="doc">A hashing function on keys. It must be such that if two keys are
+equal according to <code>equal</code>, then they have identical hash values
+as computed by <code>hash</code>.
+Examples: suitable (<code>equal</code>, <code>hash</code>) pairs for arbitrary key
+types include
+<ul><li>(<code>(=)</code>, Hashtbl.hash) for comparing objects by structure
+(provided objects do not contain floats)</li><li>(<code>(fun x y -&gt; compare x y = 0)</code>, Hashtbl.hash)
+for comparing objects by structure
+and handling Pervasives.nan correctly</li><li>(<code>(==)</code>, Hashtbl.hash) for comparing objects by physical
+equality (e.g. for mutable or cyclic objects).</li></ul></div></div></div></div></div></body></html>

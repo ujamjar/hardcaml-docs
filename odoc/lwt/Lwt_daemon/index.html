@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Lwt_daemon (lwt.Lwt_daemon)</title><link rel="stylesheet" href="../../odoc.css"/><meta charset="utf-8"/></head><body><div class="odoc-doc"><a href="../index.html">Up</a><div class="intro"><h1><span class="keyword">Module </span><a href="../#/Lwt_daemon">Lwt_daemon</a></h1></div><div><div class="doc">Daemon helpers</div><div><div class="region" id="/daemonize.val"><a href="#/daemonize.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>daemonize : ?syslog:bool -&gt; ?stdin:[ `Dev_null | `Close | `Keep ] -&gt; ?stdout:[ `Dev_null | `Close | `Keep | `Log_default | `Log of <a href="../Lwt_log/index.html#/logger.typ">Lwt_log.logger</a> ] -&gt; ?stderr:[ `Dev_null | `Close | `Keep | `Log_default | `Log of <a href="../Lwt_log/index.html#/logger.typ">Lwt_log.logger</a> ] -&gt; ?directory:string -&gt; ?umask:[ `Keep | `Set of int ] -&gt; unit -&gt; unit</div><div class="doc">Put the current running process into daemon mode. I.e. it forks
+and exit the parent, detach it from its controlling terminal,
+and redict standard intputs/outputs..<br/>Notes:
+<ul><li>you must be sure that there is no pending threads when
+calling this function, otherwise they may be canceled.</li></ul>If <code>syslog</code> is <code>true</code> (the default), then Lwt_log.default is
+set to <code>Lwt_log.syslog ~facility:`Daemon ()</code>, otherwise it is
+kept unchanged.<br/><code>stdin</code> is one of:
+<ul><li><code>`Dev_null</code> which means that <code>Unix.stdin</code> is reopened as
+<code>/dev/null</code>, this is the default behavior</li><li><code>`Close</code> means that <code>Unix.stdin</code> is simply closed</li><li><code>`Keep</code> means that <code>Unix.stdin</code> is left unchanged</li></ul><code>stdout</code> and <code>stderr</code> control how the two associated file
+descriptors are redirected:
+<ul><li><code>`Dev_null</code> means that the output is redirected to <code>/dev/null</code></li><li><code>`Close</code> means that the file descriptor is closed</li><li><code>`Keep</code> means that it is left unchanged</li><li><code>`Log logger</code> means that the output is redirected to this
+logger</li><li><code>`Log_default</code> means that the output is redirected to the
+default logger</li></ul>Both <code>stdout</code> and <code>stderr</code> default to <code>`Log_default</code>.<br/>Warning: do not redirect an output to a logger logging into this
+output. For example, this code will create an infinite loop:<br/><pre>
+        let logger = Lwt_log.channel ~close_mode:`Keep ~channel:Lwt_io.stderr () in
+        Lwt_daemon.daemonize ~syslog:false ~stderr:(`Log logger) ();
+        prerr_endline &quot;foo&quot;
+      </pre><br/>The current working directory is set to <code>directory</code>, which
+defaults to <code>&quot;/&quot;</code>.<br/><code>umask</code> may be one of:
+<ul><li><code>`Keep</code> which means that the umask is left unchanged</li><li><code>`Set n</code> which means that the umask is set to <code>n</code></li></ul>It defaults to <code>`Set 0o022</code>.</div></div></div></div></div></div></body></html>

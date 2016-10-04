@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Util (yojson.Yojson.Safe.Util)</title><link rel="stylesheet" href="../../../../odoc.css"/><meta charset="utf-8"/></head><body><div class="odoc-doc"><a href="../index.html">Up</a><div class="intro"><h1><span class="keyword">Module </span><a href="../#/Util">Util</a></h1></div><div class="mod"><div class="def"><span class="keyword">module </span>Util : <span class="keyword">sig</span> ... <span class="keyword">end</span></div><div class="doc">/*</div><hr/><div><div class="doc">This module provides combinators for extracting fields from JSON
+values. This approach is recommended for reading a few fields
+from data returned by public APIs. However for more complex applications
+we recommend <a href="https://github.com/MyLifeLabs/atdgen">Atdgen</a>.<br/>Here is some sample JSON data:
+<pre>
+{
+  &quot;id&quot;: &quot;398eb027&quot;,
+  &quot;name&quot;: &quot;John Doe&quot;,
+  &quot;pages&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;title&quot;: &quot;The Art of Flipping Coins&quot;,
+      &quot;url&quot;: &quot;http://example.com/398eb027/1&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;deleted&quot;: true
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;title&quot;: &quot;Artichoke Salad&quot;,
+      &quot;url&quot;: &quot;http://example.com/398eb027/3&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;title&quot;: &quot;Flying Bananas&quot;,
+      &quot;url&quot;: &quot;http://example.com/398eb027/4&quot;
+    }
+  ]
+}
+</pre><br/>In order to extract the &quot;id&quot; field, assuming it is mandatory,
+we would use the following OCaml code that operates on single JSON
+nodes:
+<pre>
+open Yojson.Basic.Util
+...
+  let id = json |&gt; member &quot;id&quot; |&gt; to_string in
+  ...
+</pre><br/>In order to extract all the &quot;title&quot; fields, we would write the following
+OCaml code that operates on lists of JSON nodes, skipping
+undefined nodes and nodes of unexpected type:
+<pre>
+open Yojson.Basic.Util
+
+let extract_titles (json : Yojson.Basic.json) : string list =
+  [json]
+    |&gt; filter_member &quot;pages&quot;
+    |&gt; flatten
+    |&gt; filter_member &quot;title&quot;
+    |&gt; filter_string
+</pre></div><div class="exn"><div class="def"><span class="keyword">exn </span>Type_error of string * <a href="../index.html#/json.typ">json</a></div><div class="doc">Raised when the JSON value is not of the correct type to support an
+operation, e.g. <code>member</code> on an <code>`Int</code>. The string message explains the
+mismatch.</div></div><div class="exn"><div class="def"><span class="keyword">exn </span>Undefined of string * <a href="../index.html#/json.typ">json</a></div><div class="doc">Raised when the equivalent JavaScript operation on the JSON value would
+return undefined. Currently this only happens when an array index is out
+of bounds.</div></div><div class="region" id="/(|&gt;).val"><a href="#/(|&gt;).val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>(|&gt;) : 'a -&gt; ('a -&gt; 'b) -&gt; 'b</div><div class="doc"></div></div></div><div class="region" id="/keys.val"><a href="#/keys.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>keys : <a href="../index.html#/json.typ">json</a> -&gt; string list</div><div class="doc">Returns all the key names in the given JSON object</div></div></div><div class="region" id="/values.val"><a href="#/values.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>values : <a href="../index.html#/json.typ">json</a> -&gt; <a href="../index.html#/json.typ">json</a> list</div><div class="doc">Return all the value in the given JSON object</div></div></div><div class="region" id="/combine.val"><a href="#/combine.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>combine : <a href="../index.html#/json.typ">json</a> -&gt; <a href="../index.html#/json.typ">json</a> -&gt; <a href="../index.html#/json.typ">json</a></div><div class="doc">Combine two JSON Objects together</div></div></div><div class="region" id="/member.val"><a href="#/member.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>member : string -&gt; <a href="../index.html#/json.typ">json</a> -&gt; <a href="../index.html#/json.typ">json</a></div><div class="doc"><code>member k obj</code> returns the value associated with the key <code>k</code> in the JSON
+object <code>obj</code>, or <code>`Null</code> if <code>k</code> is not present in <code>obj</code>.</div></div></div><div class="region" id="/index.val"><a href="#/index.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>index : int -&gt; <a href="../index.html#/json.typ">json</a> -&gt; <a href="../index.html#/json.typ">json</a></div><div class="doc"><code>index i arr</code> returns the value at index <code>i</code> in the JSON array <code>arr</code>.
+Negative indices count from the end of the list (so -1 is the last
+element).</div></div></div><div class="region" id="/map.val"><a href="#/map.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>map : (<a href="../index.html#/json.typ">json</a> -&gt; <a href="../index.html#/json.typ">json</a>) -&gt; <a href="../index.html#/json.typ">json</a> -&gt; <a href="../index.html#/json.typ">json</a></div><div class="doc"><code>map f arr</code> calls the function <code>f</code> on each element of the JSON array
+<code>arr</code>, and returns a JSON array containing the results.</div></div></div><div class="region" id="/to_assoc.val"><a href="#/to_assoc.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>to_assoc : <a href="../index.html#/json.typ">json</a> -&gt; (string * <a href="../index.html#/json.typ">json</a>) list</div><div class="doc">Extract the items of a JSON object or raise <code>Type_error</code>.</div></div></div><div class="region" id="/to_option.val"><a href="#/to_option.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>to_option : (<a href="../index.html#/json.typ">json</a> -&gt; 'a) -&gt; <a href="../index.html#/json.typ">json</a> -&gt; 'a option</div><div class="doc">Return <code>None</code> if the JSON value is null or map the JSON value
+to <code>Some</code> value using the provided function.</div></div></div><div class="region" id="/to_bool.val"><a href="#/to_bool.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>to_bool : <a href="../index.html#/json.typ">json</a> -&gt; bool</div><div class="doc">Extract a boolean value or raise <code>Type_error</code>.</div></div></div><div class="region" id="/to_bool_option.val"><a href="#/to_bool_option.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>to_bool_option : <a href="../index.html#/json.typ">json</a> -&gt; bool option</div><div class="doc">Extract <code>Some</code> boolean value,
+return <code>None</code> if the value is null,
+or raise <code>Type_error</code> otherwise.</div></div></div><div class="region" id="/to_number.val"><a href="#/to_number.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>to_number : <a href="../index.html#/json.typ">json</a> -&gt; float</div><div class="doc">Extract a number or raise <code>Type_error</code>.</div></div></div><div class="region" id="/to_number_option.val"><a href="#/to_number_option.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>to_number_option : <a href="../index.html#/json.typ">json</a> -&gt; float option</div><div class="doc">Extract <code>Some</code> number,
+return <code>None</code> if the value is null,
+or raise <code>Type_error</code> otherwise.</div></div></div><div class="region" id="/to_float.val"><a href="#/to_float.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>to_float : <a href="../index.html#/json.typ">json</a> -&gt; float</div><div class="doc">Extract a float value or raise <code>Type_error</code>.
+<code>to_number</code> is generally preferred as it also works with int literals.</div></div></div><div class="region" id="/to_float_option.val"><a href="#/to_float_option.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>to_float_option : <a href="../index.html#/json.typ">json</a> -&gt; float option</div><div class="doc">Extract <code>Some</code> float value,
+return <code>None</code> if the value is null,
+or raise <code>Type_error</code> otherwise.
+<code>to_number_option</code> is generally preferred as it also works
+with int literals.</div></div></div><div class="region" id="/to_int.val"><a href="#/to_int.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>to_int : <a href="../index.html#/json.typ">json</a> -&gt; int</div><div class="doc">Extract an int from a JSON int or raise <code>Type_error</code>.</div></div></div><div class="region" id="/to_int_option.val"><a href="#/to_int_option.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>to_int_option : <a href="../index.html#/json.typ">json</a> -&gt; int option</div><div class="doc">Extract <code>Some</code> int from a JSON int,
+return <code>None</code> if the value is null,
+or raise <code>Type_error</code> otherwise.</div></div></div><div class="region" id="/to_list.val"><a href="#/to_list.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>to_list : <a href="../index.html#/json.typ">json</a> -&gt; <a href="../index.html#/json.typ">json</a> list</div><div class="doc">Extract a list from JSON array or raise <code>Type_error</code>.</div></div></div><div class="region" id="/to_string.val"><a href="#/to_string.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>to_string : <a href="../index.html#/json.typ">json</a> -&gt; string</div><div class="doc">Extract a string from a JSON string or raise <code>Type_error</code>.</div></div></div><div class="region" id="/to_string_option.val"><a href="#/to_string_option.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>to_string_option : <a href="../index.html#/json.typ">json</a> -&gt; string option</div><div class="doc">Extract <code>Some</code> string from a JSON string,
+return <code>None</code> if the value is null,
+or raise <code>Type_error</code> otherwise.</div></div></div><div class="region" id="/convert_each.val"><a href="#/convert_each.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>convert_each : (<a href="../index.html#/json.typ">json</a> -&gt; 'a) -&gt; <a href="../index.html#/json.typ">json</a> -&gt; 'a list</div><div class="doc">The conversion functions above cannot be used with <code>map</code>, because they do
+not return JSON values. This convenience function <code>convert_each to_f arr</code>
+is equivalent to <code>List.map to_f (to_list arr)</code>.</div></div></div><div class="doc"><h3>Exception-free filters</h3></div><div class="doc">The following functions operate on lists of JSON nodes.
+None of them raises an exception when a certain kind of node is expected
+but no node or the wrong kind of node is found.
+Instead of raising an exception, nodes that are not as expected
+are simply ignored.</div><div class="region" id="/filter_map.val"><a href="#/filter_map.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>filter_map : ('a -&gt; 'b option) -&gt; 'a list -&gt; 'b list</div><div class="doc"><code>filter_map f l</code> maps each element of the list <code>l</code> to an optional value
+using function <code>f</code> and unwraps the resulting values.</div></div></div><div class="region" id="/flatten.val"><a href="#/flatten.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>flatten : <a href="../index.html#/json.typ">json</a> list -&gt; <a href="../index.html#/json.typ">json</a> list</div><div class="doc">Expects JSON arrays and returns all their elements as a single
+list. <code>flatten l</code> is equivalent to <code>List.flatten (filter_list l)</code>.</div></div></div><div class="region" id="/filter_index.val"><a href="#/filter_index.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>filter_index : int -&gt; <a href="../index.html#/json.typ">json</a> list -&gt; <a href="../index.html#/json.typ">json</a> list</div><div class="doc">Expects JSON arrays and returns all their elements existing at the given
+position.</div></div></div><div class="region" id="/filter_list.val"><a href="#/filter_list.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>filter_list : <a href="../index.html#/json.typ">json</a> list -&gt; <a href="../index.html#/json.typ">json</a> list list</div><div class="doc">Expects JSON arrays and unwraps them.</div></div></div><div class="region" id="/filter_member.val"><a href="#/filter_member.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>filter_member : string -&gt; <a href="../index.html#/json.typ">json</a> list -&gt; <a href="../index.html#/json.typ">json</a> list</div><div class="doc">Expects JSON objects and returns all the fields of the given name
+(at most one field per object).</div></div></div><div class="region" id="/filter_assoc.val"><a href="#/filter_assoc.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>filter_assoc : <a href="../index.html#/json.typ">json</a> list -&gt; (string * <a href="../index.html#/json.typ">json</a>) list list</div><div class="doc">Expects JSON objects and unwraps them.</div></div></div><div class="region" id="/filter_bool.val"><a href="#/filter_bool.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>filter_bool : <a href="../index.html#/json.typ">json</a> list -&gt; bool list</div><div class="doc">Expects JSON booleans and unwraps them.</div></div></div><div class="region" id="/filter_int.val"><a href="#/filter_int.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>filter_int : <a href="../index.html#/json.typ">json</a> list -&gt; int list</div><div class="doc">Expects JSON integers (<code>`Int</code> nodes) and unwraps them.</div></div></div><div class="region" id="/filter_float.val"><a href="#/filter_float.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>filter_float : <a href="../index.html#/json.typ">json</a> list -&gt; float list</div><div class="doc">Expects JSON floats (<code>`Float</code> nodes) and unwraps them.</div></div></div><div class="region" id="/filter_number.val"><a href="#/filter_number.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>filter_number : <a href="../index.html#/json.typ">json</a> list -&gt; float list</div><div class="doc">Expects JSON numbers (<code>`Int</code> or <code>`Float</code>) and unwraps them.
+Ints are converted to floats.</div></div></div><div class="region" id="/filter_string.val"><a href="#/filter_string.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>filter_string : <a href="../index.html#/json.typ">json</a> list -&gt; string list</div><div class="doc">Expects JSON strings and unwraps them.</div></div></div></div></div></div></body></html>

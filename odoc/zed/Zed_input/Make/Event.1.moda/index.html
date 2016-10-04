@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Event.1 (zed.Zed_input.Make.Event.1)</title><link rel="stylesheet" href="../../../../odoc.css"/><meta charset="utf-8"/></head><body><div class="odoc-doc"><a href="../index.html">Up</a><div class="intro"><h1><span class="keyword">Parameter </span><a href="../#/Event.1.moda">Event.1</a></h1></div><div><div class="region" id="/t.typ"><a href="#/t.typ" class="anchor"></a><div class="typ"><div class="def"><span class="keyword">type </span>t</div><div class="doc">The type of the map keys.</div></div></div><div class="region" id="/compare.val"><a href="#/compare.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>compare : <a href="index.html#/t.typ">t</a> -&gt; <a href="index.html#/t.typ">t</a> -&gt; int</div><div class="doc">A total ordering function over the keys.
+This is a two-argument function <code>f</code> such that
+<code>f e1 e2</code> is zero if the keys <code>e1</code> and <code>e2</code> are equal,
+<code>f e1 e2</code> is strictly negative if <code>e1</code> is smaller than <code>e2</code>,
+and <code>f e1 e2</code> is strictly positive if <code>e1</code> is greater than <code>e2</code>.
+Example: a suitable ordering function is the generic structural
+comparison function Pervasives.compare.</div></div></div></div></div></body></html>
