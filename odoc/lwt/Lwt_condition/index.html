@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Lwt_condition (lwt.Lwt_condition)</title><link rel="stylesheet" href="../../odoc.css"/><meta charset="utf-8"/></head><body><div class="odoc-doc"><a href="../index.html">Up</a><div class="intro"><h1><span class="keyword">Module </span><a href="../#/Lwt_condition">Lwt_condition</a></h1></div><div><div class="doc">Conditions</div><div><div class="doc">Condition variables to synchronize between threads.</div><div class="region" id="/t.typ"><a href="#/t.typ" class="anchor"></a><div class="typ"><div class="def"><span class="keyword">type </span>'a t</div><div class="doc">Condition variable type. The type parameter denotes the type of
+value propagated from notifier to waiter.</div></div></div><div class="region" id="/create.val"><a href="#/create.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>create : unit -&gt; 'a <a href="index.html#/t.typ">t</a></div><div class="doc"><code>create ()</code> creates a new condition variable.</div></div></div><div class="region" id="/wait.val"><a href="#/wait.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>wait : ?mutex:<a href="../Lwt_mutex/index.html#/t.typ">Lwt_mutex.t</a> -&gt; 'a <a href="index.html#/t.typ">t</a> -&gt; 'a <a href="../Lwt/index.html#/t.typ">Lwt.t</a></div><div class="doc"><code>wait mutex condvar</code> will cause the current thread to block,
+awaiting notification for a condition variable, <code>condvar</code>. If
+provided, the <code>mutex</code> must have been previously locked (within
+the scope of <code>Lwt_mutex.with_lock</code>, for example) and is
+temporarily unlocked until the condition is notified. Upon
+notification, <code>mutex</code> is re-locked before <code>wait</code> returns and
+the thread's activity is resumed. When the awaited condition
+is notified, the value parameter passed to <code>notify</code> is
+returned.</div></div></div><div class="region" id="/signal.val"><a href="#/signal.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>signal : 'a <a href="index.html#/t.typ">t</a> -&gt; 'a -&gt; unit</div><div class="doc"><code>signal condvar value</code> notifies that a condition is ready. A
+single waiting thread will be awoken and will receive the
+notification value which will be returned from <code>wait</code>. Note
+that condition notification is not &quot;sticky&quot;, i.e. if there is
+no waiter when <code>notify</code> is called, the notification will be
+missed and the value discarded.</div></div></div><div class="region" id="/broadcast.val"><a href="#/broadcast.val" class="anchor"></a><div class="val"><div class="def"><span class="keyword">val </span>broadcast : 'a <a href="index.html#/t.typ">t</a> -&gt; 'a -&gt; unit</div><div class="doc"><code>broadcast condvar value</code> notifies all waiting threads. Each
+will be awoken in turn and will receive the same notification
+value.</div></div></div></div></div></div></body></html>
